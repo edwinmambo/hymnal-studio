@@ -1,17 +1,21 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
+import 'dart:io' if (dart.library.js_interop) 'dart:html' as io_or_html;
+import 'dart:js_interop';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart' as shelf_io;
 import 'package:shelf_web_socket/shelf_web_socket.dart';
+import 'package:web/web.dart' as web;
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class WorshipCastServer {
-  HttpServer? _server;
+  dynamic _server;
   final Set<WebSocketChannel> _clients = {};
   final StreamController<Map<String, dynamic>> _localStreamController =
       StreamController<Map<String, dynamic>>.broadcast();
 
+  web.BroadcastChannel? _webChannel;
   int _port = 8080;
   String _hostIp = '127.0.0.1';
   bool _isRunning = false;
@@ -20,12 +24,25 @@ class WorshipCastServer {
   bool get isRunning => _isRunning;
   int get port => _port;
   String get hostIp => _hostIp;
-  int get clientCount => _clients.length;
-  String get displayUrl => 'http://$_hostIp:$_port';
+  int get clientCount => kIsWeb ? 1 : _clients.length;
+
+  String get displayUrl {
+    if (kIsWeb) {
+      return Uri.base.replace(queryParameters: {'display': '1'}).toString();
+    }
+    return 'http://$_hostIp:$_port';
+  }
+
   Stream<Map<String, dynamic>> get localStream => _localStreamController.stream;
 
   Future<bool> start({int preferredPort = 8080}) async {
     if (_isRunning) return true;
+
+    if (kIsWeb) {
+      _webChannel = web.BroadcastChannel('hymnal_studio_cast');
+      _isRunning = true;
+      return true;
+    }
 
     _port = preferredPort;
     await _detectLocalIp();
@@ -65,14 +82,13 @@ class WorshipCastServer {
     });
 
     try {
-      _server = await shelf_io.serve(handler, InternetAddress.anyIPv4, _port);
+      _server = await shelf_io.serve(handler, io_or_html.InternetAddress.anyIPv4, _port);
       _isRunning = true;
       return true;
     } catch (e) {
       try {
-        // Try fallback port 8088 if 8080 is busy
         _port = 8088;
-        _server = await shelf_io.serve(handler, InternetAddress.anyIPv4, _port);
+        _server = await shelf_io.serve(handler, io_or_html.InternetAddress.anyIPv4, _port);
         _isRunning = true;
         return true;
       } catch (err) {
@@ -87,7 +103,11 @@ class WorshipCastServer {
       client.sink.close();
     }
     _clients.clear();
-    await _server?.close(force: true);
+    _webChannel?.close();
+    _webChannel = null;
+    if (!kIsWeb && _server != null) {
+      await _server.close(force: true);
+    }
     _server = null;
     _isRunning = false;
   }
@@ -97,8 +117,12 @@ class WorshipCastServer {
     _localStreamController.add(message);
 
     final payload = jsonEncode(message);
-    final deadClients = <WebSocketChannel>[];
 
+    if (kIsWeb && _webChannel != null) {
+      _webChannel!.postMessage(payload.toJS);
+    }
+
+    final deadClients = <WebSocketChannel>[];
     for (final client in _clients) {
       try {
         client.sink.add(payload);
@@ -109,10 +133,20 @@ class WorshipCastServer {
     _clients.removeAll(deadClients);
   }
 
+  void openDisplayWindow() {
+    if (kIsWeb) {
+      web.window.open(displayUrl, 'hymnal_studio_display', 'popup=yes,width=1280,height=720');
+    }
+  }
+
   Future<void> _detectLocalIp() async {
+    if (kIsWeb) {
+      _hostIp = 'localhost';
+      return;
+    }
     try {
-      final interfaces = await NetworkInterface.list(
-        type: InternetAddressType.IPv4,
+      final interfaces = await io_or_html.NetworkInterface.list(
+        type: io_or_html.InternetAddressType.IPv4,
         includeLoopback: false,
       );
       for (final iface in interfaces) {
