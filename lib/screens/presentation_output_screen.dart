@@ -41,7 +41,10 @@ class PresentationOutputScreen extends StatelessWidget {
             ? const SizedBox.expand()
             : SafeArea(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 32),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: (48 * fontScale).clamp(8.0, 48.0),
+                    vertical: (32 * fontScale).clamp(6.0, 32.0),
+                  ),
                   child: Column(
                     children: [
                       // Header Badge
@@ -54,13 +57,13 @@ class PresentationOutputScreen extends StatelessWidget {
                                 .toUpperCase(),
                             style: TextStyle(
                               color: const Color(0xFF38BDF8),
-                              fontSize: 16 * fontScale,
+                              fontSize: (14 * fontScale).clamp(9.0, 16.0),
                               fontWeight: FontWeight.bold,
-                              letterSpacing: 2.0,
+                              letterSpacing: 1.5 * fontScale,
                             ),
                           ),
                         ),
-                        const SizedBox(height: 24),
+                        SizedBox(height: (20 * fontScale).clamp(4.0, 24.0)),
                       ],
 
                       // Main Lyrics Area
@@ -86,16 +89,20 @@ class PresentationOutputScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: currentSlide!.lines.map((line) {
                                 return Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                  padding: EdgeInsets.symmetric(
+                                    vertical: (currentSlide!.lines.length <= 2 ? 6.0 : 3.0) *
+                                        fontScale,
+                                  ),
                                   child: Text(
                                     line,
                                     textAlign: TextAlign.center,
+                                    softWrap: true,
                                     style: TextStyle(
                                       color: primaryTextColor,
                                       fontSize: _calculateFontSize(currentSlide!.lines.length) *
                                           fontScale,
                                       fontWeight: FontWeight.w600,
-                                      height: 1.3,
+                                      height: 1.25,
                                       shadows: const [
                                         Shadow(
                                           color: Colors.black87,

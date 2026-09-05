@@ -376,120 +376,133 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
 
           const SizedBox(width: 16),
 
-          // Blackout & Clear Screen Toggles
-          ElevatedButton.icon(
-            icon: Icon(
-              _isBlackout ? Icons.visibility : Icons.visibility_off,
-              size: 16,
-              color: Colors.white,
-            ),
-            label: Text(_isBlackout ? 'BLACKOUT ON' : 'Blackout (B)'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: _isBlackout ? const Color(0xFFDC2626) : const Color(0xFF1E293B),
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-              elevation: 0,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            ),
-            onPressed: _toggleBlackout,
-          ),
-
-          const SizedBox(width: 8),
-
-          OutlinedButton.icon(
-            icon: Icon(
-              _isCleared ? Icons.format_color_reset : Icons.text_fields,
-              size: 16,
-              color: _isCleared ? const Color(0xFFF59E0B) : Colors.white70,
-            ),
-            label: Text(
-              _isCleared ? 'CLEARED' : 'Clear Text (C)',
-              style: TextStyle(color: _isCleared ? const Color(0xFFF59E0B) : Colors.white70),
-            ),
-            style: OutlinedButton.styleFrom(
-              side: BorderSide(
-                color: _isCleared ? const Color(0xFFF59E0B) : Colors.white24,
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            ),
-            onPressed: _toggleCleared,
-          ),
-
-          const SizedBox(width: 16),
-
-          // Theme Menu
-          PopupMenuButton<String>(
-            tooltip: 'Select Audience Theme',
-            initialValue: _activeTheme,
-            color: const Color(0xFF1E293B),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            onSelected: _setTheme,
-            itemBuilder: (context) => [
-              const PopupMenuItem(value: 'midnight', child: Text('Midnight Navy', style: TextStyle(color: Colors.white))),
-              const PopupMenuItem(value: 'warmGold', child: Text('Warm Amber / Gold', style: TextStyle(color: Colors.white))),
-              const PopupMenuItem(value: 'sapphire', child: Text('Sapphire Blue', style: TextStyle(color: Colors.white))),
-              const PopupMenuItem(value: 'pureBlack', child: Text('OLED Pure Black', style: TextStyle(color: Colors.white))),
-            ],
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-              decoration: BoxDecoration(
-                color: const Color(0xFF1E293B),
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.white12),
-              ),
+          // Actions Toolbar (scrollable horizontally if window is narrow)
+          Expanded(
+            flex: 0,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
               child: Row(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Icon(Icons.palette_outlined, size: 16, color: Colors.white70),
-                  const SizedBox(width: 6),
-                  Text(
-                    _activeTheme.toUpperCase(),
-                    style: const TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.bold),
+                  // Blackout Toggle
+                  ElevatedButton.icon(
+                    icon: Icon(
+                      _isBlackout ? Icons.visibility : Icons.visibility_off,
+                      size: 16,
+                      color: Colors.white,
+                    ),
+                    label: Text(_isBlackout ? 'BLACKOUT' : 'Blackout (B)'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: _isBlackout ? const Color(0xFFDC2626) : const Color(0xFF1E293B),
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    ),
+                    onPressed: _toggleBlackout,
                   ),
-                ],
-              ),
-            ),
-          ),
 
-          const SizedBox(width: 12),
+                  const SizedBox(width: 8),
 
-          // Casting Status Pill
-          InkWell(
-            onTap: _showPairingDialog,
-            borderRadius: BorderRadius.circular(8),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-              decoration: BoxDecoration(
-                color: widget.castServer.isRunning
-                    ? const Color(0xFF10B981).withValues(alpha: 0.15)
-                    : Colors.white10,
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(
-                  color: widget.castServer.isRunning
-                      ? const Color(0xFF10B981)
-                      : Colors.white24,
-                ),
-              ),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.cast,
-                    size: 16,
-                    color: widget.castServer.isRunning
-                        ? const Color(0xFF34D399)
-                        : Colors.white54,
+                  // Clear Screen Toggle
+                  OutlinedButton.icon(
+                    icon: Icon(
+                      _isCleared ? Icons.format_color_reset : Icons.text_fields,
+                      size: 16,
+                      color: _isCleared ? const Color(0xFFF59E0B) : Colors.white70,
+                    ),
+                    label: Text(
+                      _isCleared ? 'CLEARED' : 'Clear (C)',
+                      style: TextStyle(color: _isCleared ? const Color(0xFFF59E0B) : Colors.white70),
+                    ),
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(
+                        color: _isCleared ? const Color(0xFFF59E0B) : Colors.white24,
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    ),
+                    onPressed: _toggleCleared,
                   ),
-                  const SizedBox(width: 6),
-                  Text(
-                    widget.castServer.isRunning
-                        ? '${widget.castServer.clientCount} Display(s)'
-                        : 'Cast Off',
-                    style: TextStyle(
-                      color: widget.castServer.isRunning
-                          ? const Color(0xFF34D399)
-                          : Colors.white54,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
+
+                  const SizedBox(width: 12),
+
+                  // Theme Menu
+                  PopupMenuButton<String>(
+                    tooltip: 'Select Audience Theme',
+                    initialValue: _activeTheme,
+                    color: const Color(0xFF1E293B),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    onSelected: _setTheme,
+                    itemBuilder: (context) => [
+                      const PopupMenuItem(value: 'midnight', child: Text('Midnight Navy', style: TextStyle(color: Colors.white))),
+                      const PopupMenuItem(value: 'warmGold', child: Text('Warm Amber / Gold', style: TextStyle(color: Colors.white))),
+                      const PopupMenuItem(value: 'sapphire', child: Text('Sapphire Blue', style: TextStyle(color: Colors.white))),
+                      const PopupMenuItem(value: 'pureBlack', child: Text('OLED Pure Black', style: TextStyle(color: Colors.white))),
+                    ],
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 7),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF1E293B),
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: Colors.white12),
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.palette_outlined, size: 16, color: Colors.white70),
+                          const SizedBox(width: 6),
+                          Text(
+                            _activeTheme.toUpperCase(),
+                            style: const TextStyle(color: Colors.white70, fontSize: 11, fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(width: 10),
+
+                  // Casting Status Pill
+                  InkWell(
+                    onTap: _showPairingDialog,
+                    borderRadius: BorderRadius.circular(8),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: widget.castServer.isRunning
+                            ? const Color(0xFF10B981).withValues(alpha: 0.15)
+                            : Colors.white10,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: widget.castServer.isRunning
+                              ? const Color(0xFF10B981)
+                              : Colors.white24,
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.cast,
+                            size: 16,
+                            color: widget.castServer.isRunning
+                                ? const Color(0xFF34D399)
+                                : Colors.white54,
+                          ),
+                          const SizedBox(width: 6),
+                          Text(
+                            widget.castServer.isRunning
+                                ? '${widget.castServer.clientCount} Display(s)'
+                                : 'Cast Off',
+                            style: TextStyle(
+                              color: widget.castServer.isRunning
+                                  ? const Color(0xFF34D399)
+                                  : Colors.white54,
+                              fontSize: 11,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -758,31 +771,39 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 6,
+                    alignment: WrapAlignment.spaceBetween,
+                    crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                        decoration: BoxDecoration(
-                          color: isLive
-                              ? const Color(0xFF38BDF8)
-                              : Colors.white.withValues(alpha: 0.1),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Text(
-                          slide.sectionLabel.toUpperCase(),
-                          style: TextStyle(
-                            color: isLive ? const Color(0xFF0F172A) : Colors.white70,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 11,
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                            decoration: BoxDecoration(
+                              color: isLive
+                                  ? const Color(0xFF38BDF8)
+                                  : Colors.white.withValues(alpha: 0.1),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Text(
+                              slide.sectionLabel.toUpperCase(),
+                              style: TextStyle(
+                                color: isLive ? const Color(0xFF0F172A) : Colors.white70,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 11,
+                              ),
+                            ),
                           ),
-                        ),
+                          const SizedBox(width: 8),
+                          Text(
+                            'Slide ${idx + 1} of ${slide.totalSlides}',
+                            style: TextStyle(color: Colors.white.withValues(alpha: 0.5), fontSize: 12),
+                          ),
+                        ],
                       ),
-                      const SizedBox(width: 8),
-                      Text(
-                        'Slide ${idx + 1} of ${slide.totalSlides}',
-                        style: TextStyle(color: Colors.white.withValues(alpha: 0.5), fontSize: 12),
-                      ),
-                      const Spacer(),
                       if (isLive)
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
@@ -908,80 +929,80 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
 
     return Container(
       color: const Color(0xFF0C1322),
-      child: Column(
-        children: [
-          // Header
-          Container(
-            padding: const EdgeInsets.all(12),
-            color: const Color(0xFF101726),
-            child: const Row(
-              children: [
-                Icon(Icons.live_tv, size: 16, color: Color(0xFF38BDF8)),
-                SizedBox(width: 8),
-                Text('Audience Display Monitor', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13)),
-              ],
-            ),
-          ),
-
-          // Scaled 16:9 Live Audience Mirror
-          AspectRatio(
-            aspectRatio: 16 / 9,
-            child: Container(
-              margin: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.white24),
-                boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 8)],
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: PresentationOutputScreen(
-                currentSlide: currentSlide,
-                isBlackout: _isBlackout,
-                isCleared: _isCleared,
-                themeName: _activeTheme,
-                fontScale: 0.55, // scaled for preview
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Header
+            Container(
+              padding: const EdgeInsets.all(12),
+              color: const Color(0xFF101726),
+              child: const Row(
+                children: [
+                  Icon(Icons.live_tv, size: 16, color: Color(0xFF38BDF8)),
+                  SizedBox(width: 8),
+                  Text('Audience Display Monitor', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13)),
+                ],
               ),
             ),
-          ),
 
-          // Slide Navigation Buttons
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton.icon(
-                    icon: const Icon(Icons.arrow_back, size: 16),
-                    label: const Text('Prev (←)'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF1E293B),
-                      foregroundColor: Colors.white,
-                    ),
-                    onPressed: _prevSlide,
-                  ),
+            // Scaled 16:9 Live Audience Mirror
+            AspectRatio(
+              aspectRatio: 16 / 9,
+              child: Container(
+                margin: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.white24),
+                  boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 8)],
                 ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: ElevatedButton.icon(
-                    icon: const Icon(Icons.arrow_forward, size: 16),
-                    label: const Text('Next (→)'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF0284C7),
-                      foregroundColor: Colors.white,
-                    ),
-                    onPressed: _nextSlide,
-                  ),
+                clipBehavior: Clip.antiAlias,
+                child: PresentationOutputScreen(
+                  currentSlide: currentSlide,
+                  isBlackout: _isBlackout,
+                  isCleared: _isCleared,
+                  themeName: _activeTheme,
+                  fontScale: 0.55, // scaled for preview
                 ),
-              ],
+              ),
             ),
-          ),
 
-          const SizedBox(height: 12),
-          const Divider(color: Colors.white12, height: 1),
+            // Slide Navigation Buttons
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.arrow_back, size: 16),
+                      label: const Text('Prev (←)'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF1E293B),
+                        foregroundColor: Colors.white,
+                      ),
+                      onPressed: _prevSlide,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.arrow_forward, size: 16),
+                      label: const Text('Next (→)'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF0284C7),
+                        foregroundColor: Colors.white,
+                      ),
+                      onPressed: _nextSlide,
+                    ),
+                  ),
+                ],
+              ),
+            ),
 
-          // MIDI / Audio Accompaniment Control Deck
-          Expanded(
-            child: SingleChildScrollView(
+            const SizedBox(height: 12),
+            const Divider(color: Colors.white12, height: 1),
+
+            // MIDI / Audio Accompaniment Control Deck
+            Padding(
               padding: const EdgeInsets.all(12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -1090,8 +1111,8 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                 ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
