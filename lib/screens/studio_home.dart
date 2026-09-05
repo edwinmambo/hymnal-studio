@@ -925,6 +925,8 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
           ),
           child: TabBar(
             controller: _centerTabController,
+            isScrollable: true,
+            tabAlignment: TabAlignment.start,
             indicatorColor: const Color(0xFF38BDF8),
             indicatorWeight: 3,
             labelColor: const Color(0xFF38BDF8),
@@ -961,64 +963,68 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
       children: [
         // Slide Layout Toolbar (Couplets vs 4 Lines, Chorus Insertion)
         Container(
+          width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           decoration: const BoxDecoration(
             color: Color(0xFF101726),
             border: Border(bottom: BorderSide(color: Color(0xFF1E293B))),
           ),
-          child: Row(
-            children: [
-              const Text(
-                'Chunking:',
-                style: TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.w600),
-              ),
-              const SizedBox(width: 8),
-              ChoiceChip(
-                label: const Text('2 Lines (Couplet)'),
-                labelStyle: const TextStyle(fontSize: 11),
-                selected: _linesPerSlide == 2,
-                selectedColor: const Color(0xFF0284C7),
-                backgroundColor: const Color(0xFF1E293B),
-                onSelected: (val) {
-                  if (val) {
-                    setState(() => _linesPerSlide = 2);
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                const Text(
+                  'Chunking:',
+                  style: TextStyle(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(width: 8),
+                ChoiceChip(
+                  label: const Text('2 Lines (Couplet)'),
+                  labelStyle: const TextStyle(fontSize: 11),
+                  selected: _linesPerSlide == 2,
+                  selectedColor: const Color(0xFF0284C7),
+                  backgroundColor: const Color(0xFF1E293B),
+                  onSelected: (val) {
+                    if (val) {
+                      setState(() => _linesPerSlide = 2);
+                      _reformatSlides();
+                    }
+                  },
+                ),
+                const SizedBox(width: 6),
+                ChoiceChip(
+                  label: const Text('4 Lines (Full Stanza)'),
+                  labelStyle: const TextStyle(fontSize: 11),
+                  selected: _linesPerSlide == 4,
+                  selectedColor: const Color(0xFF0284C7),
+                  backgroundColor: const Color(0xFF1E293B),
+                  onSelected: (val) {
+                    if (val) {
+                      setState(() => _linesPerSlide = 4);
+                      _reformatSlides();
+                    }
+                  },
+                ),
+                const SizedBox(width: 16),
+                FilterChip(
+                  label: const Text('Auto-Insert Refrain'),
+                  labelStyle: const TextStyle(fontSize: 11),
+                  selected: _autoInsertChorus,
+                  selectedColor: const Color(0xFF0284C7).withValues(alpha: 0.3),
+                  checkmarkColor: const Color(0xFF38BDF8),
+                  backgroundColor: const Color(0xFF1E293B),
+                  onSelected: (val) {
+                    setState(() => _autoInsertChorus = val);
                     _reformatSlides();
-                  }
-                },
-              ),
-              const SizedBox(width: 6),
-              ChoiceChip(
-                label: const Text('4 Lines (Full Stanza)'),
-                labelStyle: const TextStyle(fontSize: 11),
-                selected: _linesPerSlide == 4,
-                selectedColor: const Color(0xFF0284C7),
-                backgroundColor: const Color(0xFF1E293B),
-                onSelected: (val) {
-                  if (val) {
-                    setState(() => _linesPerSlide = 4);
-                    _reformatSlides();
-                  }
-                },
-              ),
-              const SizedBox(width: 16),
-              FilterChip(
-                label: const Text('Auto-Insert Refrain'),
-                labelStyle: const TextStyle(fontSize: 11),
-                selected: _autoInsertChorus,
-                selectedColor: const Color(0xFF0284C7).withValues(alpha: 0.3),
-                checkmarkColor: const Color(0xFF38BDF8),
-                backgroundColor: const Color(0xFF1E293B),
-                onSelected: (val) {
-                  setState(() => _autoInsertChorus = val);
-                  _reformatSlides();
-                },
-              ),
-              const Spacer(),
-              Text(
-                '${_currentSlides.length} Presentation Slides',
-                style: TextStyle(color: Colors.white.withValues(alpha: 0.5), fontSize: 12),
-              ),
-            ],
+                  },
+                ),
+                const SizedBox(width: 16),
+                Text(
+                  '${_currentSlides.length} Presentation Slides',
+                  style: TextStyle(color: Colors.white.withValues(alpha: 0.5), fontSize: 12),
+                ),
+              ],
+            ),
           ),
         ),
 
