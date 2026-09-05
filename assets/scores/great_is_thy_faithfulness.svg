@@ -25,13 +25,13 @@
   <rect x="0" y="0" width="1200" height="12" fill="#0284c7" rx="6" />
 
   <!-- Hymn Header Banner -->
-  <text x="80" y="75" class="header-num">CIS #511</text>
-  <text x="600" y="75" class="header-title">Dare to Be a Daniel</text>
-  <text x="1120" y="75" class="meta-text" text-anchor="end">Key of Bb Major • P.M. with Refrain</text>
+  <text x="80" y="75" class="header-num">SDAH #100</text>
+  <text x="600" y="75" class="header-title">Great Is Thy Faithfulness</text>
+  <text x="1120" y="75" class="meta-text" text-anchor="end">Key of Eb Major • 11.10.11.10 with Refrain</text>
 
   <!-- Author and Composer Attribution -->
-  <text x="80" y="115" class="meta-text">Words: Philip P. Bliss (1873)</text>
-  <text x="1120" y="115" class="meta-text" text-anchor="end">Music: Philip P. Bliss (1873)</text>
+  <text x="80" y="115" class="meta-text">Words: Thomas O. Chisholm (1923)</text>
+  <text x="1120" y="115" class="meta-text" text-anchor="end">Music: William M. Runyan (1923)</text>
 
   <line x1="80" y1="135" x2="1120" y2="135" stroke="#cbd5e1" stroke-width="1.5" />
 
@@ -83,7 +83,7 @@
   </g>
 
   <!-- Lyrics In Center Between Staves -->
-  <text x="600" y="300" class="lyric-text">1. Stand-ing by a pur-pose true, Heed-ing God's com-mand!</text>
+  <text x="600" y="300" class="lyric-text">1. Great is Thy faith-ful-ness, O God my Fa-ther, There is no sha-dow of turn-ing with Thee;</text>
 
   <!-- Bass Staff (5 lines) -->
   <g transform="translate(80, 336)">

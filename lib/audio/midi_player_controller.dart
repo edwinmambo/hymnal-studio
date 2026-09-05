@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
+import 'package:hymnal_studio/audio/sound_engine.dart';
 import 'package:hymnal_studio/models/hymn.dart';
 import 'package:hymnal_studio/presentation/slide_formatter.dart';
 
 class MidiPlayerController extends ChangeNotifier {
+  final SoundEngine _soundEngine = createSoundEngine();
+
   bool _isPlaying = false;
   int _currentNoteIndex = 0;
   int _transposeSemitones = 0;
@@ -57,6 +60,7 @@ class MidiPlayerController extends ChangeNotifier {
 
   void play() {
     if (_currentHymn == null) return;
+    _soundEngine.resume();
     _isPlaying = true;
     _restartTimer();
     notifyListeners();
@@ -74,6 +78,7 @@ class MidiPlayerController extends ChangeNotifier {
     _currentNoteIndex = 0;
     _playbackTimer?.cancel();
     _playbackTimer = null;
+    _soundEngine.stop();
     notifyListeners();
   }
 
@@ -81,22 +86,47 @@ class MidiPlayerController extends ChangeNotifier {
     _playbackTimer?.cancel();
     // Milliseconds per beat = (60000 / BPM)
     final intervalMs = (60000 / _bpm).round();
-    _playbackTimer = Timer.periodic(Duration(milliseconds: intervalMs), (
-      timer,
-    ) {
-      final notes = _currentHymn?.music.melodyNotes;
-      if (notes == null || notes.isEmpty) {
-        _currentNoteIndex = (_currentNoteIndex + 1) % 12;
-      } else {
-        _currentNoteIndex = (_currentNoteIndex + 1) % notes.length;
-      }
-      notifyListeners();
+
+    // Play immediate first note
+    _playCurrentTick(intervalMs);
+
+    _playbackTimer = Timer.periodic(Duration(milliseconds: intervalMs), (timer) {
+      _playCurrentTick(intervalMs);
     });
+  }
+
+  void _playCurrentTick(int intervalMs) {
+    final notes = _currentHymn?.music.melodyNotes;
+    int noteToPlay;
+
+    if (notes == null || notes.isEmpty) {
+      const defaultMelody = [60, 64, 67, 69, 67, 64, 65, 67, 65, 64, 62, 60];
+      noteToPlay = defaultMelody[_currentNoteIndex % defaultMelody.length];
+      _currentNoteIndex = (_currentNoteIndex + 1) % defaultMelody.length;
+    } else {
+      noteToPlay = notes[_currentNoteIndex % notes.length];
+      _currentNoteIndex = (_currentNoteIndex + 1) % notes.length;
+    }
+
+    // Rich 3-part organ chord: Melody + Tenor/Alto harmonic support + Pedal Bass (-12 semitones)
+    final chordNotes = <int>[
+      noteToPlay,
+      if (noteToPlay >= 60) noteToPlay - 12, // pedal octave bass
+    ];
+
+    _soundEngine.playChord(
+      chordNotes,
+      transposeSemitones: _transposeSemitones,
+      durationSeconds: (intervalMs / 1000.0) * 0.90,
+    );
+
+    notifyListeners();
   }
 
   @override
   void dispose() {
     _playbackTimer?.cancel();
+    _soundEngine.dispose();
     super.dispose();
   }
 }

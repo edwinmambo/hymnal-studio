@@ -1,116 +1,157 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
   <defs>
     <style>
       .score-bg { fill: #ffffff; }
-      .header-num { font-family: 'Cinzel', serif; font-size: 28px; font-weight: bold; fill: #1a2332; }
-      .header-title { font-family: 'Georgia', serif; font-size: 32px; font-weight: bold; fill: #0f172a; text-anchor: middle; }
-      .meta-text { font-family: sans-serif; font-size: 13px; fill: #475569; }
-      .staff-line { stroke: #334155; stroke-width: 1.5; }
-      .clef-symbol { fill: #0f172a; }
+      .header-num { font-family: 'Cinzel', 'Times New Roman', serif; font-size: 38px; font-weight: bold; fill: #0f172a; }
+      .header-title { font-family: 'Georgia', 'Times New Roman', serif; font-size: 44px; font-weight: bold; fill: #0284c7; text-anchor: middle; }
+      .meta-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 16px; fill: #475569; font-weight: 500; }
+      .staff-line { stroke: #1e293b; stroke-width: 2.5; stroke-linecap: round; }
+      .bar-line { stroke: #0f172a; stroke-width: 3.5; stroke-linecap: round; }
+      .clef-symbol { fill: #0f172a; font-family: serif; font-size: 72px; }
+      .time-sig { font-family: sans-serif; font-size: 32px; font-weight: 800; fill: #0f172a; }
       .note-head { fill: #0f172a; }
-      .note-stem { stroke: #0f172a; stroke-width: 2; }
-      .lyric-text { font-family: 'Georgia', serif; font-size: 16px; fill: #1e293b; text-anchor: middle; }
-      .chord-badge { font-family: monospace; font-size: 14px; font-weight: bold; fill: #0284c7; }
+      .note-stem { stroke: #0f172a; stroke-width: 3; stroke-linecap: round; }
+      .lyric-text { font-family: 'Georgia', serif; font-size: 24px; fill: #0f172a; text-anchor: middle; font-weight: 500; }
+      .chord-badge { font-family: 'Courier New', monospace; font-size: 20px; font-weight: 900; fill: #0284c7; }
+      .footer-brand { font-family: sans-serif; font-size: 14px; fill: #64748b; font-weight: 600; text-anchor: middle; letter-spacing: 1.5px; }
+      .stave-bracket { stroke: #0f172a; stroke-width: 5; fill: none; }
     </style>
   </defs>
 
-  <rect width="800" height="500" class="score-bg" rx="12" />
+  <!-- High contrast paper background with soft border -->
+  <rect width="1200" height="700" class="score-bg" rx="16" stroke="#e2e8f0" stroke-width="2" />
 
-  <!-- Header -->
-  <text x="50" y="55" class="header-num">CIS #433</text>
-  <text x="400" y="55" class="header-title">Peace, Be Still!</text>
-  <text x="750" y="55" class="meta-text" text-anchor="end">C Major • 6.6.9.D with Refrain</text>
+  <!-- Top Decorative Bar -->
+  <rect x="0" y="0" width="1200" height="12" fill="#0284c7" rx="6" />
 
-  <text x="50" y="85" class="meta-text">Mary Ann Baker (1874)</text>
-  <text x="750" y="85" class="meta-text" text-anchor="end">H. R. Palmer (1874)</text>
+  <!-- Hymn Header Banner -->
+  <text x="80" y="75" class="header-num">CIS #433</text>
+  <text x="600" y="75" class="header-title">Peace, Be Still!</text>
+  <text x="1120" y="75" class="meta-text" text-anchor="end">Key of C Major • 6.6.9.D with Refrain</text>
+
+  <!-- Author and Composer Attribution -->
+  <text x="80" y="115" class="meta-text">Words: Mary Ann Baker (1874)</text>
+  <text x="1120" y="115" class="meta-text" text-anchor="end">Music: H. R. Palmer (1874)</text>
+
+  <line x1="80" y1="135" x2="1120" y2="135" stroke="#cbd5e1" stroke-width="1.5" />
+
+  <!-- SYSTEM 1: TREBLE & BASS STAVES -->
+  <!-- Grand Staff Bracket -->
+  <line x1="80" y1="180" x2="80" y2="400" class="stave-bracket" />
 
   <!-- Treble Staff (5 lines) -->
-  <g transform="translate(50, 140)">
-    <line x1="0" y1="0" x2="700" y2="0" class="staff-line"/>
-    <line x1="0" y1="12" x2="700" y2="12" class="staff-line"/>
-    <line x1="0" y1="24" x2="700" y2="24" class="staff-line"/>
-    <line x1="0" y1="36" x2="700" y2="36" class="staff-line"/>
-    <line x1="0" y1="48" x2="700" y2="48" class="staff-line"/>
+  <g transform="translate(80, 180)">
+    <line x1="0" y1="0" x2="1040" y2="0" class="staff-line"/>
+    <line x1="0" y1="16" x2="1040" y2="16" class="staff-line"/>
+    <line x1="0" y1="32" x2="1040" y2="32" class="staff-line"/>
+    <line x1="0" y1="48" x2="1040" y2="48" class="staff-line"/>
+    <line x1="0" y1="64" x2="1040" y2="64" class="staff-line"/>
 
     <!-- Bar lines -->
-    <line x1="0" y1="0" x2="0" y2="48" class="staff-line" stroke-width="2.5"/>
-    <line x1="230" y1="0" x2="230" y2="48" class="staff-line"/>
-    <line x1="460" y1="0" x2="460" y2="48" class="staff-line"/>
-    <line x1="700" y1="0" x2="700" y2="48" class="staff-line" stroke-width="3"/>
+    <line x1="0" y1="0" x2="0" y2="64" class="bar-line"/>
+    <line x1="340" y1="0" x2="340" y2="64" class="bar-line"/>
+    <line x1="680" y1="0" x2="680" y2="64" class="bar-line"/>
+    <line x1="1040" y1="0" x2="1040" y2="64" class="bar-line"/>
 
     <!-- Treble Clef -->
-    <text x="10" y="38" font-family="serif" font-size="52" class="clef-symbol">𝄞</text>
-    <text x="45" y="34" font-family="sans-serif" font-size="22" font-weight="bold" fill="#0f172a">4/4</text>
+    <text x="12" y="52" class="clef-symbol">𝄞</text>
+    <text x="65" y="46" class="time-sig">4/4</text>
 
-    <!-- Measure 1 Notes -->
-    <text x="110" y="-12" class="chord-badge">[I]</text>
-    <ellipse cx="110" cy="36" rx="7" ry="5" class="note-head" transform="rotate(-15 110 36)"/>
-    <line x1="116" y1="34" x2="116" y2="6" class="note-stem"/>
+    <!-- Measure 1 Notes (Chords & Melodic Notes) -->
+    <text x="160" y="-18" class="chord-badge">[ I ]</text>
+    <ellipse cx="160" cy="48" rx="10" ry="7" class="note-head" transform="rotate(-15 160 48)"/>
+    <line x1="169" y1="46" x2="169" y2="6" class="note-stem"/>
 
-    <ellipse cx="170" cy="24" rx="7" ry="5" class="note-head" transform="rotate(-15 170 24)"/>
-    <line x1="176" y1="22" x2="176" y2="-6" class="note-stem"/>
+    <ellipse cx="250" cy="32" rx="10" ry="7" class="note-head" transform="rotate(-15 250 32)"/>
+    <line x1="259" y1="30" x2="259" y2="-10" class="note-stem"/>
 
     <!-- Measure 2 Notes -->
-    <text x="290" y="-12" class="chord-badge">[V]</text>
-    <ellipse cx="290" cy="12" rx="7" ry="5" class="note-head" transform="rotate(-15 290 12)"/>
-    <line x1="296" y1="10" x2="296" y2="-18" class="note-stem"/>
+    <text x="430" y="-18" class="chord-badge">[ IV ]</text>
+    <ellipse cx="430" cy="16" rx="10" ry="7" class="note-head" transform="rotate(-15 430 16)"/>
+    <line x1="439" y1="14" x2="439" y2="-26" class="note-stem"/>
 
-    <ellipse cx="370" cy="0" rx="7" ry="5" class="note-head" transform="rotate(-15 370 0)"/>
-    <line x1="376" y1="-2" x2="376" y2="-30" class="note-stem"/>
+    <ellipse cx="540" cy="0" rx="10" ry="7" class="note-head" transform="rotate(-15 540 0)"/>
+    <line x1="549" y1="-2" x2="549" y2="-42" class="note-stem"/>
 
     <!-- Measure 3 Notes -->
-    <text x="520" y="-12" class="chord-badge">[IV]</text>
-    <ellipse cx="520" cy="12" rx="7" ry="5" class="note-head" transform="rotate(-15 520 12)"/>
-    <line x1="526" y1="10" x2="526" y2="-18" class="note-stem"/>
+    <text x="780" y="-18" class="chord-badge">[ V7 ]</text>
+    <ellipse cx="780" cy="16" rx="10" ry="7" class="note-head" transform="rotate(-15 780 16)"/>
+    <line x1="789" y1="14" x2="789" y2="-26" class="note-stem"/>
 
-    <ellipse cx="610" cy="24" rx="7" ry="5" class="note-head" transform="rotate(-15 610 24)"/>
-    <line x1="616" y1="22" x2="616" y2="-6" class="note-stem"/>
+    <ellipse cx="910" cy="32" rx="10" ry="7" class="note-head" transform="rotate(-15 910 32)"/>
+    <line x1="919" y1="30" x2="919" y2="-10" class="note-stem"/>
   </g>
 
-  <!-- Lyrics Line 1 -->
-  <text x="160" y="225" class="lyric-text">1. Mas - ter, the</text>
-  <text x="370" y="225" class="lyric-text">tem - pest is</text>
-  <text x="600" y="225" class="lyric-text">rag - ing!</text>
+  <!-- Lyrics In Center Between Staves -->
+  <text x="600" y="300" class="lyric-text">1. Mas-ter, the tem-pest is rag-ing! The bil-lows are toss-ing high!</text>
 
   <!-- Bass Staff (5 lines) -->
-  <g transform="translate(50, 290)">
-    <line x1="0" y1="0" x2="700" y2="0" class="staff-line"/>
-    <line x1="0" y1="12" x2="700" y2="12" class="staff-line"/>
-    <line x1="0" y1="24" x2="700" y2="24" class="staff-line"/>
-    <line x1="0" y1="36" x2="700" y2="36" class="staff-line"/>
-    <line x1="0" y1="48" x2="700" y2="48" class="staff-line"/>
+  <g transform="translate(80, 336)">
+    <line x1="0" y1="0" x2="1040" y2="0" class="staff-line"/>
+    <line x1="0" y1="16" x2="1040" y2="16" class="staff-line"/>
+    <line x1="0" y1="32" x2="1040" y2="32" class="staff-line"/>
+    <line x1="0" y1="48" x2="1040" y2="48" class="staff-line"/>
+    <line x1="0" y1="64" x2="1040" y2="64" class="staff-line"/>
 
     <!-- Bar lines -->
-    <line x1="0" y1="0" x2="0" y2="48" class="staff-line" stroke-width="2.5"/>
-    <line x1="230" y1="0" x2="230" y2="48" class="staff-line"/>
-    <line x1="460" y1="0" x2="460" y2="48" class="staff-line"/>
-    <line x1="700" y1="0" x2="700" y2="48" class="staff-line" stroke-width="3"/>
+    <line x1="0" y1="0" x2="0" y2="64" class="bar-line"/>
+    <line x1="340" y1="0" x2="340" y2="64" class="bar-line"/>
+    <line x1="680" y1="0" x2="680" y2="64" class="bar-line"/>
+    <line x1="1040" y1="0" x2="1040" y2="64" class="bar-line"/>
 
     <!-- Bass Clef -->
-    <text x="10" y="32" font-family="serif" font-size="44" class="clef-symbol">𝄢</text>
-    <text x="45" y="34" font-family="sans-serif" font-size="22" font-weight="bold" fill="#0f172a">4/4</text>
+    <text x="12" y="44" class="clef-symbol">𝄢</text>
+    <text x="65" y="46" class="time-sig">4/4</text>
 
     <!-- Bass Notes -->
-    <ellipse cx="110" cy="48" rx="7" ry="5" class="note-head" transform="rotate(-15 110 48)"/>
-    <line x1="104" y1="50" x2="104" y2="78" class="note-stem"/>
+    <ellipse cx="160" cy="64" rx="10" ry="7" class="note-head" transform="rotate(-15 160 64)"/>
+    <line x1="151" y1="66" x2="151" y2="106" class="note-stem"/>
 
-    <ellipse cx="170" cy="36" rx="7" ry="5" class="note-head" transform="rotate(-15 170 36)"/>
-    <line x1="164" y1="38" x2="164" y2="66" class="note-stem"/>
+    <ellipse cx="250" cy="48" rx="10" ry="7" class="note-head" transform="rotate(-15 250 48)"/>
+    <line x1="241" y1="50" x2="241" y2="90" class="note-stem"/>
 
-    <ellipse cx="290" cy="24" rx="7" ry="5" class="note-head" transform="rotate(-15 290 24)"/>
-    <line x1="284" y1="26" x2="284" y2="54" class="note-stem"/>
+    <ellipse cx="430" cy="32" rx="10" ry="7" class="note-head" transform="rotate(-15 430 32)"/>
+    <line x1="421" y1="34" x2="421" y2="74" class="note-stem"/>
 
-    <ellipse cx="370" cy="36" rx="7" ry="5" class="note-head" transform="rotate(-15 370 36)"/>
-    <line x1="364" y1="38" x2="364" y2="66" class="note-stem"/>
+    <ellipse cx="540" cy="48" rx="10" ry="7" class="note-head" transform="rotate(-15 540 48)"/>
+    <line x1="531" y1="50" x2="531" y2="90" class="note-stem"/>
 
-    <ellipse cx="520" cy="24" rx="7" ry="5" class="note-head" transform="rotate(-15 520 24)"/>
-    <line x1="514" y1="26" x2="514" y2="54" class="note-stem"/>
+    <ellipse cx="780" cy="32" rx="10" ry="7" class="note-head" transform="rotate(-15 780 32)"/>
+    <line x1="771" y1="34" x2="771" y2="74" class="note-stem"/>
 
-    <ellipse cx="610" cy="48" rx="7" ry="5" class="note-head" transform="rotate(-15 610 48)"/>
-    <line x1="604" y1="50" x2="604" y2="78" class="note-stem"/>
+    <ellipse cx="910" cy="64" rx="10" ry="7" class="note-head" transform="rotate(-15 910 64)"/>
+    <line x1="901" y1="66" x2="901" y2="106" class="note-stem"/>
   </g>
 
-  <text x="400" y="465" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="middle">
-    Hymnal Studio • Vector Score Sheet • SATB 4-Part Harmony
+  <!-- SYSTEM 2 / CHORUS HARMONY PREVIEW -->
+  <g transform="translate(80, 480)">
+    <text x="0" y="0" class="chord-badge" font-size="18">CHORUS / REFRAIN SATB HARMONY SECTION:</text>
+    <line x1="0" y1="20" x2="1040" y2="20" class="staff-line"/>
+    <line x1="0" y1="36" x2="1040" y2="36" class="staff-line"/>
+    <line x1="0" y1="52" x2="1040" y2="52" class="staff-line"/>
+    <line x1="0" y1="68" x2="1040" y2="68" class="staff-line"/>
+    <line x1="0" y1="84" x2="1040" y2="84" class="staff-line"/>
+
+    <line x1="0" y1="20" x2="0" y2="84" class="bar-line"/>
+    <line x1="520" y1="20" x2="520" y2="84" class="bar-line"/>
+    <line x1="1040" y1="20" x2="1040" y2="84" class="bar-line" stroke-width="5"/>
+
+    <text x="12" y="72" class="clef-symbol">𝄞</text>
+    <text x="120" y="52" class="chord-badge">[ I ]</text>
+    <ellipse cx="120" cy="52" rx="10" ry="7" class="note-head" transform="rotate(-15 120 52)"/>
+    <text x="320" y="52" class="chord-badge">[ IV ]</text>
+    <ellipse cx="320" cy="36" rx="10" ry="7" class="note-head" transform="rotate(-15 320 36)"/>
+    <text x="640" y="52" class="chord-badge">[ V ]</text>
+    <ellipse cx="640" cy="20" rx="10" ry="7" class="note-head" transform="rotate(-15 640 20)"/>
+    <text x="860" y="52" class="chord-badge">[ I ]</text>
+    <ellipse cx="860" cy="52" rx="10" ry="7" class="note-head" transform="rotate(-15 860 52)"/>
+
+    <text x="520" y="125" class="lyric-text" font-style="italic">Sing with spirit and with understanding • 1 Cor 14:15</text>
+  </g>
+
+  <!-- Modern Console Footer -->
+  <line x1="80" y1="645" x2="1120" y2="645" stroke="#e2e8f0" stroke-width="1.5" />
+  <text x="600" y="675" class="footer-brand">
+    HYMNAL STUDIO • PROFESSIONAL HIGH-RESOLUTION VECTOR SCORE SHEET • SATB 4-PART NOTATION
   </text>
 </svg>
