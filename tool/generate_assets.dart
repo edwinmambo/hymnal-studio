@@ -19,33 +19,37 @@ void main() {
     {
       "code": "CIS",
       "name": "Christ in Song (1908)",
-      "description": "Historical Adventist hymn collection compiled by F. E. Belden featuring gospel revival hymns."
+      "description":
+          "Historical Adventist hymn collection compiled by F. E. Belden featuring gospel revival hymns.",
     },
     {
       "code": "SDAH",
       "name": "Seventh-day Adventist Hymnal (1985)",
-      "description": "The official 1985 hymnal of the Seventh-day Adventist Church."
+      "description":
+          "The official 1985 hymnal of the Seventh-day Adventist Church.",
     },
     {
       "code": "EXT",
       "name": "SDAH Extended / Gospel Favorites",
-      "description": "Beloved camp meeting, quartet, and supplementary gospel favorites."
+      "description":
+          "Beloved camp meeting, quartet, and supplementary gospel favorites.",
     },
     {
       "code": "KM",
       "name": "Kristu Munzwiyo (Shona)",
-      "description": "Seventh-day Adventist Shona Hymnal from Zimbabwe and Southern Africa."
+      "description":
+          "Seventh-day Adventist Shona Hymnal from Zimbabwe and Southern Africa.",
     },
     {
       "code": "UE",
       "name": "UKristu Esihlabelelweni (Ndebele/Zulu)",
-      "description": "Seventh-day Adventist Ndebele/Zulu Hymnal."
+      "description": "Seventh-day Adventist Ndebele/Zulu Hymnal.",
     },
     {
       "code": "NZK",
       "name": "Nyimbo za Kristo (Swahili)",
-      "description": "Seventh-day Adventist Swahili Hymnal across East Africa."
-    }
+      "description": "Seventh-day Adventist Swahili Hymnal across East Africa.",
+    },
   ];
 
   final songs = [
@@ -59,11 +63,12 @@ void main() {
       "author": "Mary Ann Baker (1874)",
       "composer": "H. R. Palmer (1874)",
       "scripture": "Mark 4:39",
-      "historyNote": "Written in 1874 by Mary Ann Baker after the heartbreaking death of her brother from tuberculosis. H.R. Palmer composed the stirring music with dynamic contrast between the raging tempest and Christ's calming peace.",
+      "historyNote":
+          "Written in 1874 by Mary Ann Baker after the heartbreaking death of her brother from tuberculosis. H.R. Palmer composed the stirring music with dynamic contrast between the raging tempest and Christ's calming peace.",
       "rights": {
         "type": "publicDomain",
         "licenseNotice": "Public domain worldwide (published 1874)",
-        "verifiedAt": "2026-09-06"
+        "verifiedAt": "2026-09-06",
       },
       "music": {
         "defaultKey": "C",
@@ -72,7 +77,7 @@ void main() {
         "defaultBpm": 84,
         "midiAsset": "assets/midi/peace_be_still.mid",
         "scoreAsset": "assets/scores/peace_be_still.svg",
-        "melodyNotes": [60, 64, 67, 69, 67, 64, 65, 67, 65, 64, 62, 60]
+        "melodyNotes": [60, 64, 67, 69, 67, 64, 65, 67, 65, 64, 62, 60],
       },
       "sections": [
         {
@@ -87,14 +92,14 @@ void main() {
             "Carest Thou not that we perish?",
             "How canst Thou lie asleep",
             "When each moment so madly is threat’ning",
-            "A grave in the angry deep?"
+            "A grave in the angry deep?",
           ],
           "chords": [
             "[C] Master, the tempest is raging!",
             "The [G] billows are tossing [C] high!",
             "The [F] sky is o'ershadowed with [C] blackness,",
-            "No [G7] shelter or help is [C] nigh."
-          ]
+            "No [G7] shelter or help is [C] nigh.",
+          ],
         },
         {
           "type": "chorus",
@@ -107,14 +112,14 @@ void main() {
             "No waters can swallow the ship where lies",
             "The Master of ocean and earth and skies;",
             "They all shall sweetly obey My will:",
-            "Peace, be still! Peace, be still!”"
+            "Peace, be still! Peace, be still!”",
           ],
           "chords": [
             "[C] \"The winds and the waves shall obey My will:",
             "[G] Peace, be [C] still! [G] Peace, be [C] still!",
             "Whether the [F] wrath of the storm-tossed [C] sea,",
-            "Or [Dm] demons or men or what-[G]ever it be..."
-          ]
+            "Or [Dm] demons or men or what-[G]ever it be...",
+          ],
         },
         {
           "type": "verse",
@@ -128,8 +133,8 @@ void main() {
             "Torrents of sin and of sorrow",
             "Sweep o’er my sinking soul,",
             "And I perish! I perish! dear Master;",
-            "Oh, hasten, and take control!"
-          ]
+            "Oh, hasten, and take control!",
+          ],
         },
         {
           "type": "verse",
@@ -143,10 +148,10 @@ void main() {
             "Linger, O blessed Redeemer!",
             "Leave me alone no more,",
             "And with joy I shall make the blest harbor,",
-            "And dwell on the blissful shore."
-          ]
-        }
-      ]
+            "And dwell on the blissful shore.",
+          ],
+        },
+      ],
     },
     {
       "id": "cis-511",
@@ -157,11 +162,12 @@ void main() {
       "author": "Philip P. Bliss (1873)",
       "composer": "Philip P. Bliss (1873)",
       "scripture": "Daniel 1:8",
-      "historyNote": "Written by P.P. Bliss for Sunday school children and youth rallies. Inspired by Daniel's unwavering loyalty in Babylon, refusing the king's meat and praying despite the lion's den decree.",
+      "historyNote":
+          "Written by P.P. Bliss for Sunday school children and youth rallies. Inspired by Daniel's unwavering loyalty in Babylon, refusing the king's meat and praying despite the lion's den decree.",
       "rights": {
         "type": "publicDomain",
         "licenseNotice": "Public domain worldwide (published 1873)",
-        "verifiedAt": "2026-09-06"
+        "verifiedAt": "2026-09-06",
       },
       "music": {
         "defaultKey": "Bb",
@@ -170,7 +176,7 @@ void main() {
         "defaultBpm": 108,
         "midiAsset": "assets/midi/dare_to_be_a_daniel.mid",
         "scoreAsset": "assets/scores/dare_to_be_a_daniel.svg",
-        "melodyNotes": [58, 62, 65, 65, 67, 65, 63, 62, 60, 58]
+        "melodyNotes": [58, 62, 65, 65, 67, 65, 63, 62, 60, 58],
       },
       "sections": [
         {
@@ -181,14 +187,14 @@ void main() {
             "Standing by a purpose true,",
             "Heeding God’s command,",
             "Honor them, the faithful few!",
-            "All hail to Daniel’s band!"
+            "All hail to Daniel’s band!",
           ],
           "chords": [
             "[Bb] Standing by a purpose true,",
             "[F] Heeding God's com-[Bb]mand,",
             "[Eb] Honor them, the [Bb] faithful few!",
-            "All [F7] hail to Daniel's [Bb] band!"
-          ]
+            "All [F7] hail to Daniel's [Bb] band!",
+          ],
         },
         {
           "type": "chorus",
@@ -197,14 +203,14 @@ void main() {
             "Dare to be a Daniel,",
             "Dare to stand alone!",
             "Dare to have a purpose firm!",
-            "Dare to make it known."
+            "Dare to make it known.",
           ],
           "chords": [
             "[Bb] Dare to be a Daniel,",
             "[F] Dare to stand a-[Bb]lone!",
             "[Eb] Dare to have a [Bb] purpose firm!",
-            "[F] Dare to make it [Bb] known."
-          ]
+            "[F] Dare to make it [Bb] known.",
+          ],
         },
         {
           "type": "verse",
@@ -214,8 +220,8 @@ void main() {
             "Many mighty men are lost,",
             "Daring not to stand,",
             "Who for God had been a host",
-            "By joining Daniel’s band."
-          ]
+            "By joining Daniel’s band.",
+          ],
         },
         {
           "type": "verse",
@@ -225,8 +231,8 @@ void main() {
             "Many giants, great and tall,",
             "Stalking through the land,",
             "Headlong to the earth would fall,",
-            "If met by Daniel’s band."
-          ]
+            "If met by Daniel’s band.",
+          ],
         },
         {
           "type": "verse",
@@ -236,10 +242,10 @@ void main() {
             "Hold the Gospel banner high!",
             "On to vict’ry grand!",
             "Satan and his host defy,",
-            "And shout for Daniel’s band."
-          ]
-        }
-      ]
+            "And shout for Daniel’s band.",
+          ],
+        },
+      ],
     },
     {
       "id": "cis-516",
@@ -250,15 +256,12 @@ void main() {
       "author": "Philip P. Bliss (1870)",
       "composer": "Philip P. Bliss (1870)",
       "scripture": "Revelation 3:11",
-      "rights": {
-        "type": "publicDomain",
-        "verifiedAt": "2026-09-06"
-      },
+      "rights": {"type": "publicDomain", "verifiedAt": "2026-09-06"},
       "music": {
         "defaultKey": "D",
         "tuneName": "HOLD THE FORT",
         "meter": "8.5.8.5 with Refrain",
-        "defaultBpm": 112
+        "defaultBpm": 112,
       },
       "sections": [
         {
@@ -269,8 +272,8 @@ void main() {
             "Ho, my comrades! see the signal",
             "Waving in the sky!",
             "Reinforcements now appearing,",
-            "Victory is nigh."
-          ]
+            "Victory is nigh.",
+          ],
         },
         {
           "type": "chorus",
@@ -279,10 +282,10 @@ void main() {
             "“Hold the fort, for I am coming,”",
             "Jesus signals still;",
             "Wave the answer back to Heaven,",
-            "“By Thy grace we will.”"
-          ]
-        }
-      ]
+            "“By Thy grace we will.”",
+          ],
+        },
+      ],
     },
     {
       "id": "cis-588",
@@ -293,15 +296,12 @@ void main() {
       "author": "James M. Black (1893)",
       "composer": "James M. Black (1893)",
       "scripture": "Revelation 20:12",
-      "rights": {
-        "type": "publicDomain",
-        "verifiedAt": "2026-09-06"
-      },
+      "rights": {"type": "publicDomain", "verifiedAt": "2026-09-06"},
       "music": {
         "defaultKey": "Ab",
         "tuneName": "ROLL CALL",
         "meter": "15.11.15.11 with Refrain",
-        "defaultBpm": 116
+        "defaultBpm": 116,
       },
       "sections": [
         {
@@ -312,8 +312,8 @@ void main() {
             "When the trumpet of the Lord shall sound, and time shall be no more,",
             "And the morning breaks, eternal, bright and fair;",
             "When the saved of earth shall gather over on the other shore,",
-            "And the roll is called up yonder, I’ll be there."
-          ]
+            "And the roll is called up yonder, I’ll be there.",
+          ],
         },
         {
           "type": "chorus",
@@ -322,10 +322,10 @@ void main() {
             "When the roll is called up yonder,",
             "When the roll is called up yonder,",
             "When the roll is called up yonder,",
-            "When the roll is called up yonder, I’ll be there."
-          ]
-        }
-      ]
+            "When the roll is called up yonder, I’ll be there.",
+          ],
+        },
+      ],
     },
 
     // --- EXTENDED & GOSPEL FAVORITES ---
@@ -338,12 +338,14 @@ void main() {
       "author": "Mosie Lister (1958)",
       "composer": "Mosie Lister (1958)",
       "scripture": "Psalm 57:1",
-      "historyNote": "Beloved southern gospel hymn written by Mosie Lister in 1958, popularized worldwide through quartet ministries and camp meetings. Held under copyright by Lillenas / Gaither Music Company.",
+      "historyNote":
+          "Beloved southern gospel hymn written by Mosie Lister in 1958, popularized worldwide through quartet ministries and camp meetings. Held under copyright by Lillenas / Gaither Music Company.",
       "rights": {
         "type": "licensed",
         "rightsHolder": "Lillenas Publishing Co. / Gaither Music Company",
-        "licenseNotice": "Used under congregational CCLI / OneLicense projection rights. Entered for church worship display.",
-        "verifiedAt": "2026-09-06"
+        "licenseNotice":
+            "Used under congregational CCLI / OneLicense projection rights. Entered for church worship display.",
+        "verifiedAt": "2026-09-06",
       },
       "music": {
         "defaultKey": "F",
@@ -352,7 +354,7 @@ void main() {
         "defaultBpm": 76,
         "midiAsset": "assets/midi/till_the_storm_passes_by.mid",
         "scoreAsset": "assets/scores/till_the_storm_passes_by.svg",
-        "melodyNotes": [65, 67, 69, 72, 69, 67, 65, 64, 65]
+        "melodyNotes": [65, 67, 69, 72, 69, 67, 65, 64, 65],
       },
       "sections": [
         {
@@ -363,14 +365,14 @@ void main() {
             "In the dark of the midnight have I oft hid my face,",
             "While the storm howls above me, and there’s no hiding place.",
             "’Mid the crash of the thunder, Precious Lord, hear my cry:",
-            "“Keep me safe till the storm passes by.”"
+            "“Keep me safe till the storm passes by.”",
           ],
           "chords": [
             "[F] In the dark of the midnight have I [Bb] oft hid my [F] face,",
             "While the storm howls above me, and there's [C7] no hiding place.",
             "'Mid the [F] crash of the thunder, Precious [Bb] Lord, hear my [F] cry:",
-            "\"Keep me [C7] safe till the storm passes [F] by.\""
-          ]
+            "\"Keep me [C7] safe till the storm passes [F] by.\"",
+          ],
         },
         {
           "type": "chorus",
@@ -379,14 +381,14 @@ void main() {
             "Till the storm passes over, till the thunder sounds no more,",
             "Till the clouds roll forever from the sky;",
             "Hold me fast, let me stand in the hollow of Thy hand,",
-            "Keep me safe till the storm passes by."
+            "Keep me safe till the storm passes by.",
           ],
           "chords": [
             "Till the [Bb] storm passes over, till the [F] thunder sounds no more,",
             "Till the [G7] clouds roll forever from the [C7] sky;",
             "Hold me [F] fast, let me stand in the [Bb] hollow of Thy hand,",
-            "Keep me [C7] safe till the storm passes [F] by."
-          ]
+            "Keep me [C7] safe till the storm passes [F] by.",
+          ],
         },
         {
           "type": "verse",
@@ -396,8 +398,8 @@ void main() {
             "Many times Satan whispers, “There is no need to try,",
             "For there’s no end of sorrow, there’s no hope by and by.”",
             "But I know Thou art with me, and tomorrow I’ll rise",
-            "Where the storms never darken the skies."
-          ]
+            "Where the storms never darken the skies.",
+          ],
         },
         {
           "type": "verse",
@@ -407,10 +409,10 @@ void main() {
             "When the long night has ended and the storms come no more,",
             "Let me stand in Thy presence on that bright peaceful shore;",
             "In that land where the tempest, never comes, Lord, may I",
-            "Dwell with Thee when the storm passes by."
-          ]
-        }
-      ]
+            "Dwell with Thee when the storm passes by.",
+          ],
+        },
+      ],
     },
     {
       "id": "ext-702",
@@ -421,15 +423,12 @@ void main() {
       "author": "C. Austin Miles (1911)",
       "composer": "C. Austin Miles (1911)",
       "scripture": "Isaiah 62:4",
-      "rights": {
-        "type": "publicDomain",
-        "verifiedAt": "2026-09-06"
-      },
+      "rights": {"type": "publicDomain", "verifiedAt": "2026-09-06"},
       "music": {
         "defaultKey": "Bb",
         "tuneName": "BEULAH LAND",
         "meter": "8.7.8.7 with Refrain",
-        "defaultBpm": 116
+        "defaultBpm": 116,
       },
       "sections": [
         {
@@ -440,8 +439,8 @@ void main() {
             "Far away the noise of strife upon my ear is falling,",
             "Then I know the sins of earth beset on every hand:",
             "Doubt and fear and things of earth in vain to me are calling,",
-            "None of these shall move me from Beulah Land."
-          ]
+            "None of these shall move me from Beulah Land.",
+          ],
         },
         {
           "type": "chorus",
@@ -450,10 +449,10 @@ void main() {
             "I’m living on the mountain, underneath a cloudless sky,",
             "I’m drinking at the fountain that never shall run dry;",
             "Oh, yes! I’m feasting on the manna from a bountiful supply,",
-            "For I am dwelling in Beulah Land."
-          ]
-        }
-      ]
+            "For I am dwelling in Beulah Land.",
+          ],
+        },
+      ],
     },
 
     // --- SEVENTH-DAY ADVENTIST HYMNAL (1985) ---
@@ -466,16 +465,14 @@ void main() {
       "author": "Thomas O. Chisholm (1923)",
       "composer": "William M. Runyan (1923)",
       "scripture": "Lamentations 3:22-23",
-      "historyNote": "Written in 1923 by Thomas Chisholm, referencing Lamentations: 'His compassions fail not. They are new every morning: great is thy faithfulness.'",
-      "rights": {
-        "type": "publicDomain",
-        "verifiedAt": "2026-09-06"
-      },
+      "historyNote":
+          "Written in 1923 by Thomas Chisholm, referencing Lamentations: 'His compassions fail not. They are new every morning: great is thy faithfulness.'",
+      "rights": {"type": "publicDomain", "verifiedAt": "2026-09-06"},
       "music": {
         "defaultKey": "Eb",
         "tuneName": "FAITHFULNESS",
         "meter": "11.10.11.10 with Refrain",
-        "defaultBpm": 88
+        "defaultBpm": 88,
       },
       "sections": [
         {
@@ -486,14 +483,14 @@ void main() {
             "Great is Thy faithfulness, O God my Father,",
             "There is no shadow of turning with Thee;",
             "Thou changest not, Thy compassions, they fail not;",
-            "As Thou hast been Thou forever wilt be."
+            "As Thou hast been Thou forever wilt be.",
           ],
           "chords": [
             "[Eb] Great is Thy faithfulness, [Ab] O God my Father,",
             "[Bb7] There is no shadow of [Eb] turning with Thee;",
             "[Eb] Thou changest not, Thy com-[Ab]passions, they fail not;",
-            "[F7] As Thou hast been Thou for-[Bb]ever wilt be."
-          ]
+            "[F7] As Thou hast been Thou for-[Bb]ever wilt be.",
+          ],
         },
         {
           "type": "chorus",
@@ -502,14 +499,14 @@ void main() {
             "Great is Thy faithfulness! Great is Thy faithfulness!",
             "Morning by morning new mercies I see;",
             "All I have needed Thy hand hath provided—",
-            "Great is Thy faithfulness, Lord, unto me!"
+            "Great is Thy faithfulness, Lord, unto me!",
           ],
           "chords": [
             "[Bb7] Great is Thy faithfulness! [Eb] Great is Thy faithfulness!",
             "[C7] Morning by morning new [Fm] mercies I see;",
             "[Bb7] All I have needed Thy [Eb] hand hath pro-[Ab]vided—",
-            "[Eb] Great is Thy faithfulness, [Bb7] Lord, unto [Eb] me!"
-          ]
+            "[Eb] Great is Thy faithfulness, [Bb7] Lord, unto [Eb] me!",
+          ],
         },
         {
           "type": "verse",
@@ -519,8 +516,8 @@ void main() {
             "Summer and winter, and springtime and harvest,",
             "Sun, moon, and stars in their courses above,",
             "Join with all nature in manifold witness",
-            "To Thy great faithfulness, mercy, and love."
-          ]
+            "To Thy great faithfulness, mercy, and love.",
+          ],
         },
         {
           "type": "verse",
@@ -530,10 +527,10 @@ void main() {
             "Pardon for sin and a peace that endureth,",
             "Thine own dear presence to cheer and to guide;",
             "Strength for today and bright hope for tomorrow,",
-            "Blessings all mine, with ten thousand beside!"
-          ]
-        }
-      ]
+            "Blessings all mine, with ten thousand beside!",
+          ],
+        },
+      ],
     },
     {
       "id": "sdah-108",
@@ -544,10 +541,7 @@ void main() {
       "author": "John Newton (1779)",
       "composer": "Traditional American Melody (1835)",
       "scripture": "1 Chronicles 17:16-17",
-      "rights": {
-        "type": "publicDomain",
-        "verifiedAt": "2026-09-06"
-      },
+      "rights": {"type": "publicDomain", "verifiedAt": "2026-09-06"},
       "music": {
         "defaultKey": "G",
         "tuneName": "NEW BRITAIN",
@@ -555,7 +549,7 @@ void main() {
         "defaultBpm": 84,
         "midiAsset": "assets/midi/amazing_grace.mid",
         "scoreAsset": "assets/scores/amazing_grace.svg",
-        "melodyNotes": [55, 60, 64, 60, 64, 62, 60, 57, 55]
+        "melodyNotes": [55, 60, 64, 60, 64, 62, 60, 57, 55],
       },
       "sections": [
         {
@@ -566,14 +560,14 @@ void main() {
             "Amazing grace! how sweet the sound,",
             "That saved a wretch like me!",
             "I once was lost, but now am found,",
-            "Was blind, but now I see."
+            "Was blind, but now I see.",
           ],
           "chords": [
             "[G] Amazing grace! how [C] sweet the [G] sound,",
             "That saved a [D] wretch like me!",
             "I [G] once was lost, but [C] now am [G] found,",
-            "Was blind, but [D] now I [G] see."
-          ]
+            "Was blind, but [D] now I [G] see.",
+          ],
         },
         {
           "type": "verse",
@@ -583,8 +577,8 @@ void main() {
             "’Twas grace that taught my heart to fear,",
             "And grace my fears relieved;",
             "How precious did that grace appear",
-            "The hour I first believed!"
-          ]
+            "The hour I first believed!",
+          ],
         },
         {
           "type": "verse",
@@ -594,8 +588,8 @@ void main() {
             "Through many dangers, toils, and snares,",
             "I have already come;",
             "’Tis grace hath brought me safe thus far,",
-            "And grace will lead me home."
-          ]
+            "And grace will lead me home.",
+          ],
         },
         {
           "type": "verse",
@@ -605,10 +599,10 @@ void main() {
             "When we’ve been there ten thousand years,",
             "Bright shining as the sun,",
             "We’ve no less days to sing God’s praise",
-            "Than when we’d first begun."
-          ]
-        }
-      ]
+            "Than when we’d first begun.",
+          ],
+        },
+      ],
     },
     {
       "id": "sdah-213",
@@ -619,16 +613,14 @@ void main() {
       "author": "Jesse E. Strout (1889)",
       "composer": "George E. Lee (1889)",
       "scripture": "1 Thessalonians 4:16",
-      "historyNote": "Iconic Adventist Second Advent hymn emphasizing the blessed hope: 'Jesus is coming again!'",
-      "rights": {
-        "type": "publicDomain",
-        "verifiedAt": "2026-09-06"
-      },
+      "historyNote":
+          "Iconic Adventist Second Advent hymn emphasizing the blessed hope: 'Jesus is coming again!'",
+      "rights": {"type": "publicDomain", "verifiedAt": "2026-09-06"},
       "music": {
         "defaultKey": "Bb",
         "tuneName": "COMING AGAIN",
         "meter": "10.8.10.8 with Refrain",
-        "defaultBpm": 104
+        "defaultBpm": 104,
       },
       "sections": [
         {
@@ -639,16 +631,13 @@ void main() {
             "Lift up the trumpet, and loud let it ring:",
             "Jesus is coming again!",
             "Cheer up, ye pilgrims, be joyful and sing:",
-            "Jesus is coming again!"
-          ]
+            "Jesus is coming again!",
+          ],
         },
         {
           "type": "chorus",
           "label": "Refrain",
-          "lines": [
-            "Coming again, coming again,",
-            "Jesus is coming again!"
-          ]
+          "lines": ["Coming again, coming again,", "Jesus is coming again!"],
         },
         {
           "type": "verse",
@@ -658,10 +647,10 @@ void main() {
             "Echo it, hilltops; proclaim it, ye plains:",
             "Jesus is coming again!",
             "Coming in glory, the Lamb that was slain:",
-            "Jesus is coming again!"
-          ]
-        }
-      ]
+            "Jesus is coming again!",
+          ],
+        },
+      ],
     },
     {
       "id": "sdah-214",
@@ -672,16 +661,14 @@ void main() {
       "author": "Wayne Hooper (1962)",
       "composer": "Wayne Hooper (1962)",
       "scripture": "Titus 2:13",
-      "historyNote": "Theme hymn of the 1962 General Conference Session in San Francisco, composed by King's Heralds arranger and baritone Wayne Hooper.",
-      "rights": {
-        "type": "publicDomain",
-        "verifiedAt": "2026-09-06"
-      },
+      "historyNote":
+          "Theme hymn of the 1962 General Conference Session in San Francisco, composed by King's Heralds arranger and baritone Wayne Hooper.",
+      "rights": {"type": "publicDomain", "verifiedAt": "2026-09-06"},
       "music": {
         "defaultKey": "Ab",
         "tuneName": "WE HAVE THIS HOPE",
         "meter": "Irregular",
-        "defaultBpm": 88
+        "defaultBpm": 88,
       },
       "sections": [
         {
@@ -698,10 +685,10 @@ void main() {
             "Shall awake, and shout and sing",
             "Hallelujah! Christ is King!",
             "We have this hope that burns within our hearts,",
-            "Hope in the coming of the Lord."
-          ]
-        }
-      ]
+            "Hope in the coming of the Lord.",
+          ],
+        },
+      ],
     },
 
     // --- REGIONAL AFRICAN HYMNALS ---
@@ -713,14 +700,8 @@ void main() {
       "title": "Ishe Wakanaka",
       "originalTitle": "Praise Ye the Father",
       "scripture": "Mapisarema 103:1-2",
-      "rights": {
-        "type": "publicDomain",
-        "verifiedAt": "2026-09-06"
-      },
-      "music": {
-        "defaultKey": "F",
-        "defaultBpm": 96
-      },
+      "rights": {"type": "publicDomain", "verifiedAt": "2026-09-06"},
+      "music": {"defaultKey": "F", "defaultBpm": 96},
       "sections": [
         {
           "type": "verse",
@@ -730,8 +711,8 @@ void main() {
             "Ishe wakanaka unotida isu,",
             "Nokuti wakatipa Mwanakomana;",
             "Tinokurumbidza, tinokupa mbiri,",
-            "Ishe wakanaka unotida."
-          ]
+            "Ishe wakanaka unotida.",
+          ],
         },
         {
           "type": "verse",
@@ -741,10 +722,10 @@ void main() {
             "Jesu wakanaka unotida isu,",
             "Nokuti wakatifira pamuchinjikwa;",
             "Tinokurumbidza, tinokupa mbiri,",
-            "Jesu wakanaka unotida."
-          ]
-        }
-      ]
+            "Jesu wakanaka unotida.",
+          ],
+        },
+      ],
     },
     {
       "id": "km-12",
@@ -754,15 +735,8 @@ void main() {
       "title": "Mufudzi Wangu NdiMwari",
       "originalTitle": "The Lord's My Shepherd",
       "scripture": "Mapisarema 23",
-      "rights": {
-        "type": "publicDomain",
-        "verifiedAt": "2026-09-06"
-      },
-      "music": {
-        "defaultKey": "F",
-        "tuneName": "CRIMOND",
-        "defaultBpm": 92
-      },
+      "rights": {"type": "publicDomain", "verifiedAt": "2026-09-06"},
+      "music": {"defaultKey": "F", "tuneName": "CRIMOND", "defaultBpm": 92},
       "sections": [
         {
           "type": "verse",
@@ -772,8 +746,8 @@ void main() {
             "Mufudzi wangu ndiMwari,",
             "Hapana chandinoshaya;",
             "Anondivatisa pasi",
-            "Pamafuro manyoro."
-          ]
+            "Pamafuro manyoro.",
+          ],
         },
         {
           "type": "verse",
@@ -783,10 +757,10 @@ void main() {
             "Anonditungamirira",
             "Pachitubu chemvura;",
             "Anoporesa mweya wangu,",
-            "Nokuda kwezita rake."
-          ]
-        }
-      ]
+            "Nokuda kwezita rake.",
+          ],
+        },
+      ],
     },
     {
       "id": "ue-54",
@@ -796,14 +770,8 @@ void main() {
       "title": "UJesu Uyangithanda",
       "originalTitle": "Jesus Loves Me",
       "scripture": "1 Johane 4:19",
-      "rights": {
-        "type": "publicDomain",
-        "verifiedAt": "2026-09-06"
-      },
-      "music": {
-        "defaultKey": "Eb",
-        "defaultBpm": 100
-      },
+      "rights": {"type": "publicDomain", "verifiedAt": "2026-09-06"},
+      "music": {"defaultKey": "Eb", "defaultBpm": 100},
       "sections": [
         {
           "type": "verse",
@@ -813,8 +781,8 @@ void main() {
             "UJesu uyangithanda,",
             "Ngiyazi eBhayibhilini;",
             "Abantwana bangaBakhe,",
-            "Bebutheka, Ungomandla."
-          ]
+            "Bebutheka, Ungomandla.",
+          ],
         },
         {
           "type": "chorus",
@@ -823,10 +791,10 @@ void main() {
             "Yebo, uJesu uyangithanda,",
             "Yebo, uJesu uyangithanda,",
             "Yebo, uJesu uyangithanda,",
-            "Liqiniso leli."
-          ]
-        }
-      ]
+            "Liqiniso leli.",
+          ],
+        },
+      ],
     },
     {
       "id": "nzk-46",
@@ -836,15 +804,8 @@ void main() {
       "title": "Mwamba Wenye Imara",
       "originalTitle": "Rock of Ages",
       "scripture": "Kutoka 33:22",
-      "rights": {
-        "type": "publicDomain",
-        "verifiedAt": "2026-09-06"
-      },
-      "music": {
-        "defaultKey": "Bb",
-        "tuneName": "TOPLADY",
-        "defaultBpm": 88
-      },
+      "rights": {"type": "publicDomain", "verifiedAt": "2026-09-06"},
+      "music": {"defaultKey": "Bb", "tuneName": "TOPLADY", "defaultBpm": 88},
       "sections": [
         {
           "type": "verse",
@@ -856,11 +817,11 @@ void main() {
             "Maji hayo na damu,",
             "Yaliyotoka humo;",
             "Hunisafi na dhambi,",
-            "Hunifanya mshindi."
-          ]
-        }
-      ]
-    }
+            "Hunifanya mshindi.",
+          ],
+        },
+      ],
+    },
   ];
 
   final catalogData = {
@@ -870,10 +831,12 @@ void main() {
     "songs": songs,
   };
 
-  File('assets/catalog/hymnals.json').writeAsStringSync(
-    const JsonEncoder.withIndent('  ').convert(catalogData),
+  File(
+    'assets/catalog/hymnals.json',
+  ).writeAsStringSync(const JsonEncoder.withIndent('  ').convert(catalogData));
+  print(
+    'Wrote assets/catalog/hymnals.json (${songs.length} hymns across ${hymnals.length} hymnals)',
   );
-  print('Wrote assets/catalog/hymnals.json (${songs.length} hymns across ${hymnals.length} hymnals)');
 
   // 2. Generate Vector SVG Scores
   _generateSvgScore(
@@ -921,10 +884,54 @@ void main() {
   );
 
   // 3. Generate Valid Standard MIDI Files (Type 0 SMF)
-  _generateMidiFile('assets/midi/peace_be_still.mid', [60, 64, 67, 69, 67, 64, 65, 67, 65, 64, 62, 60]);
-  _generateMidiFile('assets/midi/dare_to_be_a_daniel.mid', [58, 62, 65, 65, 67, 65, 63, 62, 60, 58]);
-  _generateMidiFile('assets/midi/amazing_grace.mid', [55, 60, 64, 60, 64, 62, 60, 57, 55]);
-  _generateMidiFile('assets/midi/till_the_storm_passes_by.mid', [65, 67, 69, 72, 69, 67, 65, 64, 65]);
+  _generateMidiFile('assets/midi/peace_be_still.mid', [
+    60,
+    64,
+    67,
+    69,
+    67,
+    64,
+    65,
+    67,
+    65,
+    64,
+    62,
+    60,
+  ]);
+  _generateMidiFile('assets/midi/dare_to_be_a_daniel.mid', [
+    58,
+    62,
+    65,
+    65,
+    67,
+    65,
+    63,
+    62,
+    60,
+    58,
+  ]);
+  _generateMidiFile('assets/midi/amazing_grace.mid', [
+    55,
+    60,
+    64,
+    60,
+    64,
+    62,
+    60,
+    57,
+    55,
+  ]);
+  _generateMidiFile('assets/midi/till_the_storm_passes_by.mid', [
+    65,
+    67,
+    69,
+    72,
+    69,
+    67,
+    65,
+    64,
+    65,
+  ]);
 
   print('All Hymnal Studio assets generated successfully!');
 }
@@ -939,7 +946,8 @@ void _generateSvgScore(
   required String author,
   required List<String> melodyPreview,
 }) {
-  final svg = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  final svg =
+      '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
   <defs>
     <style>
       .score-bg { fill: #ffffff; }
@@ -1067,9 +1075,9 @@ void _generateMidiFile(String path, List<int> notes) {
   // Header chunk: 'MThd' (4 bytes), length (4 bytes = 6), format 0, 1 track, 480 division
   buffer.add([0x4D, 0x54, 0x68, 0x64]); // 'MThd'
   buffer.add([0x00, 0x00, 0x00, 0x06]); // length 6
-  buffer.add([0x00, 0x00]);             // format 0
-  buffer.add([0x00, 0x01]);             // 1 track
-  buffer.add([0x01, 0xE0]);             // 480 ticks per quarter note
+  buffer.add([0x00, 0x00]); // format 0
+  buffer.add([0x00, 0x01]); // 1 track
+  buffer.add([0x01, 0xE0]); // 480 ticks per quarter note
 
   // Track data
   final trackEvents = BytesBuilder();

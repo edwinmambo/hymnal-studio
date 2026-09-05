@@ -20,7 +20,8 @@ class ScoreSheetViewer extends StatefulWidget {
 
 class _ScoreSheetViewerState extends State<ScoreSheetViewer> {
   bool _invertColors = false;
-  final TransformationController _transformController = TransformationController();
+  final TransformationController _transformController =
+      TransformationController();
 
   @override
   void dispose() {
@@ -51,12 +52,17 @@ class _ScoreSheetViewerState extends State<ScoreSheetViewer> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             decoration: BoxDecoration(
               color: const Color(0xFF1E293B),
-              border: Border(bottom: BorderSide(color: Colors.white.withValues(alpha: 0.08))),
+              border: Border(
+                bottom: BorderSide(color: Colors.white.withValues(alpha: 0.08)),
+              ),
             ),
             child: Row(
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 4,
+                  ),
                   decoration: BoxDecoration(
                     color: const Color(0xFF0284C7).withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(6),
@@ -65,7 +71,11 @@ class _ScoreSheetViewerState extends State<ScoreSheetViewer> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(Icons.music_note, size: 16, color: Color(0xFF38BDF8)),
+                      const Icon(
+                        Icons.music_note,
+                        size: 16,
+                        color: Color(0xFF38BDF8),
+                      ),
                       const SizedBox(width: 6),
                       Text(
                         'Key: $currentKey ${semitones != 0 ? "(${semitones > 0 ? '+$semitones' : semitones} st)" : ""}',
@@ -82,7 +92,10 @@ class _ScoreSheetViewerState extends State<ScoreSheetViewer> {
                 if (widget.hymn.music.meter != null)
                   Text(
                     'Meter: ${widget.hymn.music.meter}',
-                    style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 13),
+                    style: TextStyle(
+                      color: Colors.white.withValues(alpha: 0.6),
+                      fontSize: 13,
+                    ),
                   ),
                 const Spacer(),
                 IconButton(
@@ -92,11 +105,16 @@ class _ScoreSheetViewerState extends State<ScoreSheetViewer> {
                     color: Colors.white70,
                     size: 20,
                   ),
-                  onPressed: () => setState(() => _invertColors = !_invertColors),
+                  onPressed: () =>
+                      setState(() => _invertColors = !_invertColors),
                 ),
                 IconButton(
                   tooltip: 'Reset Zoom',
-                  icon: const Icon(Icons.refresh, color: Colors.white70, size: 20),
+                  icon: const Icon(
+                    Icons.refresh,
+                    color: Colors.white70,
+                    size: 20,
+                  ),
                   onPressed: _resetZoom,
                 ),
               ],
@@ -124,8 +142,10 @@ class _ScoreSheetViewerState extends State<ScoreSheetViewer> {
                     ),
                     const SizedBox(width: 8),
                     ...widget.hymn.sections.first.chords!.map((c) {
-                      final transposed =
-                          SlideFormatter.transposeChordString(c, semitones);
+                      final transposed = SlideFormatter.transposeChordString(
+                        c,
+                        semitones,
+                      );
                       return Padding(
                         padding: const EdgeInsets.only(right: 12),
                         child: Text(
@@ -159,7 +179,9 @@ class _ScoreSheetViewerState extends State<ScoreSheetViewer> {
                           borderRadius: BorderRadius.circular(12),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: _invertColors ? Colors.black : Colors.white,
+                              color: _invertColors
+                                  ? Colors.black
+                                  : Colors.white,
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withValues(alpha: 0.5),
@@ -197,7 +219,11 @@ class _ScoreSheetViewerState extends State<ScoreSheetViewer> {
     );
   }
 
-  Widget _buildFallbackScoreCard(ThemeData theme, String currentKey, String defaultKey) {
+  Widget _buildFallbackScoreCard(
+    ThemeData theme,
+    String currentKey,
+    String defaultKey,
+  ) {
     return Container(
       width: 700,
       padding: const EdgeInsets.all(32),
@@ -222,7 +248,10 @@ class _ScoreSheetViewerState extends State<ScoreSheetViewer> {
               ),
               const Spacer(),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.white.withValues(alpha: 0.06),
                   borderRadius: BorderRadius.circular(8),
@@ -247,7 +276,10 @@ class _ScoreSheetViewerState extends State<ScoreSheetViewer> {
             const SizedBox(height: 4),
             Text(
               'Tune: ${widget.hymn.music.tuneName} • ${widget.hymn.music.meter ?? "Standard Meter"}',
-              style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 14),
+              style: TextStyle(
+                color: Colors.white.withValues(alpha: 0.6),
+                fontSize: 14,
+              ),
             ),
           ],
           const SizedBox(height: 24),
@@ -260,12 +292,19 @@ class _ScoreSheetViewerState extends State<ScoreSheetViewer> {
             ),
             child: Row(
               children: [
-                const Icon(Icons.info_outline, color: Color(0xFF38BDF8), size: 20),
+                const Icon(
+                  Icons.info_outline,
+                  color: Color(0xFF38BDF8),
+                  size: 20,
+                ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Text(
                     'Full vector score sheet for this title can be loaded via MusicXML or SVG import. Playback accompaniment is available in the audio panel below.',
-                    style: TextStyle(color: Colors.white.withValues(alpha: 0.8), fontSize: 13),
+                    style: TextStyle(
+                      color: Colors.white.withValues(alpha: 0.8),
+                      fontSize: 13,
+                    ),
                   ),
                 ),
               ],

@@ -84,13 +84,18 @@ class PresentationOutputScreen extends StatelessWidget {
                               );
                             },
                             child: Column(
-                              key: ValueKey('${currentSlide!.hymnId}_${currentSlide!.slideIndex}'),
+                              key: ValueKey(
+                                '${currentSlide!.hymnId}_${currentSlide!.slideIndex}',
+                              ),
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: currentSlide!.lines.map((line) {
                                 return Padding(
                                   padding: EdgeInsets.symmetric(
-                                    vertical: (currentSlide!.lines.length <= 2 ? 6.0 : 3.0) *
+                                    vertical:
+                                        (currentSlide!.lines.length <= 2
+                                            ? 6.0
+                                            : 3.0) *
                                         fontScale,
                                   ),
                                   child: Text(
@@ -99,7 +104,10 @@ class PresentationOutputScreen extends StatelessWidget {
                                     softWrap: true,
                                     style: TextStyle(
                                       color: primaryTextColor,
-                                      fontSize: _calculateFontSize(currentSlide!.lines.length) *
+                                      fontSize:
+                                          _calculateFontSize(
+                                            currentSlide!.lines.length,
+                                          ) *
                                           fontScale,
                                       fontWeight: FontWeight.w600,
                                       height: 1.25,

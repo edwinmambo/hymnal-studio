@@ -60,9 +60,9 @@ class _NativeWorshipCastServer implements WorshipCastServer {
       );
     });
 
-    final handler = const Pipeline()
-        .addMiddleware(logRequests())
-        .addHandler((Request request) {
+    final handler = const Pipeline().addMiddleware(logRequests()).addHandler((
+      Request request,
+    ) {
       if (request.url.path == 'ws') {
         return wsHandler(request);
       }

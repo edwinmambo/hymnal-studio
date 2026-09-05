@@ -4,8 +4,9 @@ import 'package:hymnal_studio/models/hymn.dart';
 import 'package:hymnal_studio/screens/presentation_output_screen.dart';
 
 void main() {
-  testWidgets('PresentationOutputScreen displays slide lyrics cleanly',
-      (WidgetTester tester) async {
+  testWidgets('PresentationOutputScreen displays slide lyrics cleanly', (
+    WidgetTester tester,
+  ) async {
     const testSlide = PresentationSlide(
       hymnId: 'cis-433',
       hymnalCode: 'CIS',

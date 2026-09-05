@@ -14,19 +14,25 @@ class CatalogRepository {
   Future<void> loadCatalog() async {
     if (_isLoaded) return;
     try {
-      final jsonString = await rootBundle.loadString('assets/catalog/hymnals.json');
+      final jsonString = await rootBundle.loadString(
+        'assets/catalog/hymnals.json',
+      );
       final data = jsonDecode(jsonString) as Map<String, dynamic>;
 
-      _hymnals = (data['hymnals'] as List<dynamic>?)
-              ?.map((e) => {
-                    'code': e['code'].toString(),
-                    'name': e['name'].toString(),
-                    'description': e['description']?.toString() ?? '',
-                  })
+      _hymnals =
+          (data['hymnals'] as List<dynamic>?)
+              ?.map(
+                (e) => {
+                  'code': e['code'].toString(),
+                  'name': e['name'].toString(),
+                  'description': e['description']?.toString() ?? '',
+                },
+              )
               .toList() ??
           [];
 
-      _songs = (data['songs'] as List<dynamic>?)
+      _songs =
+          (data['songs'] as List<dynamic>?)
               ?.map((e) => Hymn.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [];
@@ -46,10 +52,7 @@ class CatalogRepository {
     _isLoaded = true;
   }
 
-  List<Hymn> search({
-    String query = '',
-    String? hymnalFilter,
-  }) {
+  List<Hymn> search({String query = '', String? hymnalFilter}) {
     final cleanQuery = query.trim().toLowerCase();
 
     return _songs.where((hymn) {
@@ -96,7 +99,9 @@ class CatalogRepository {
   Hymn? findByNumber(String hymnalCode, int number) {
     try {
       return _songs.firstWhere(
-        (h) => h.hymnalCode.toUpperCase() == hymnalCode.toUpperCase() && h.number == number,
+        (h) =>
+            h.hymnalCode.toUpperCase() == hymnalCode.toUpperCase() &&
+            h.number == number,
       );
     } catch (_) {
       return null;

@@ -32,22 +32,14 @@ void main() {
         HymnSection(
           type: 'chorus',
           label: 'Refrain',
-          lines: [
-            'Chorus Line 1',
-            'Chorus Line 2',
-          ],
+          lines: ['Chorus Line 1', 'Chorus Line 2'],
           chords: ['[F] Chorus Line 1', '[C] Chorus Line 2'],
         ),
         HymnSection(
           type: 'verse',
           number: 2,
           label: 'Verse 2',
-          lines: [
-            'V2 Line 1',
-            'V2 Line 2',
-            'V2 Line 3',
-            'V2 Line 4',
-          ],
+          lines: ['V2 Line 1', 'V2 Line 2', 'V2 Line 3', 'V2 Line 4'],
         ),
       ],
     );
@@ -81,9 +73,15 @@ void main() {
 
     test('Transposes chord strings accurately', () {
       // C -> D (+2 semitones)
-      expect(SlideFormatter.transposeChordString('[C] Amazing [G7]', 2), '[D] Amazing [A7]');
+      expect(
+        SlideFormatter.transposeChordString('[C] Amazing [G7]', 2),
+        '[D] Amazing [A7]',
+      );
       // F -> G (+2 semitones)
-      expect(SlideFormatter.transposeChordString('[F] Lord [Bb]', 2), '[G] Lord [C]');
+      expect(
+        SlideFormatter.transposeChordString('[F] Lord [Bb]', 2),
+        '[G] Lord [C]',
+      );
       // Bb -> Ab (-2 semitones)
       expect(SlideFormatter.transposeChordString('[Bb] Holy', -2), '[Ab] Holy');
     });

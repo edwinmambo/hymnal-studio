@@ -56,6 +56,10 @@ class _WebWorshipCastServer implements WorshipCastServer {
 
   @override
   void openDisplayWindow() {
-    web.window.open(displayUrl, 'hymnal_studio_display', 'popup=yes,width=1280,height=720');
+    web.window.open(
+      displayUrl,
+      'hymnal_studio_display',
+      'popup=yes,width=1280,height=720',
+    );
   }
 }

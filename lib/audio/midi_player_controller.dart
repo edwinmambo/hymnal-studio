@@ -81,7 +81,9 @@ class MidiPlayerController extends ChangeNotifier {
     _playbackTimer?.cancel();
     // Milliseconds per beat = (60000 / BPM)
     final intervalMs = (60000 / _bpm).round();
-    _playbackTimer = Timer.periodic(Duration(milliseconds: intervalMs), (timer) {
+    _playbackTimer = Timer.periodic(Duration(milliseconds: intervalMs), (
+      timer,
+    ) {
       final notes = _currentHymn?.music.melodyNotes;
       if (notes == null || notes.isEmpty) {
         _currentNoteIndex = (_currentNoteIndex + 1) % 12;

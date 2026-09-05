@@ -107,26 +107,17 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
 
   void _toggleBlackout() {
     setState(() => _isBlackout = !_isBlackout);
-    widget.castServer.broadcast({
-      'type': 'BLACKOUT',
-      'value': _isBlackout,
-    });
+    widget.castServer.broadcast({'type': 'BLACKOUT', 'value': _isBlackout});
   }
 
   void _toggleCleared() {
     setState(() => _isCleared = !_isCleared);
-    widget.castServer.broadcast({
-      'type': 'CLEAR',
-      'value': _isCleared,
-    });
+    widget.castServer.broadcast({'type': 'CLEAR', 'value': _isCleared});
   }
 
   void _setTheme(String theme) {
     setState(() => _activeTheme = theme);
-    widget.castServer.broadcast({
-      'type': 'THEME',
-      'theme': theme,
-    });
+    widget.castServer.broadcast({'type': 'THEME', 'theme': theme});
   }
 
   void _broadcastCurrentSlide() {
@@ -157,7 +148,10 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
           children: [
             Icon(Icons.cast_connected, color: Color(0xFF38BDF8)),
             SizedBox(width: 10),
-            Text('Display Casting & Pairing', style: TextStyle(color: Colors.white)),
+            Text(
+              'Display Casting & Pairing',
+              style: TextStyle(color: Colors.white),
+            ),
           ],
         ),
         content: SizedBox(
@@ -167,16 +161,24 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
             children: [
               Text(
                 'Open this URL on any Smart TV browser, projector computer, or tablet on your local Wi-Fi:',
-                style: TextStyle(color: Colors.white.withValues(alpha: 0.8), fontSize: 13),
+                style: TextStyle(
+                  color: Colors.white.withValues(alpha: 0.8),
+                  fontSize: 13,
+                ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 16),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 10,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.black.withValues(alpha: 0.3),
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: const Color(0xFF38BDF8).withValues(alpha: 0.4)),
+                  border: Border.all(
+                    color: const Color(0xFF38BDF8).withValues(alpha: 0.4),
+                  ),
                 ),
                 child: SelectableText(
                   widget.castServer.displayUrl,
@@ -216,7 +218,10 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                   const SizedBox(width: 8),
                   Text(
                     '${widget.castServer.clientCount} screen(s) actively connected',
-                    style: const TextStyle(color: Color(0xFF34D399), fontSize: 12),
+                    style: const TextStyle(
+                      color: Color(0xFF34D399),
+                      fontSize: 12,
+                    ),
                   ),
                 ],
               ),
@@ -273,18 +278,12 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                     const VerticalDivider(color: Colors.white12, width: 1),
 
                     // Center Column: Slide Workspace, Score Sheet, Info
-                    Expanded(
-                      flex: 5,
-                      child: _buildCenterWorkspace(),
-                    ),
+                    Expanded(flex: 5, child: _buildCenterWorkspace()),
 
                     const VerticalDivider(color: Colors.white12, width: 1),
 
                     // Right Column: Live Audience Monitor & Controller
-                    SizedBox(
-                      width: 360,
-                      child: _buildRightControlPanel(),
-                    ),
+                    SizedBox(width: 360, child: _buildRightControlPanel()),
                   ],
                 ),
               ),
@@ -314,7 +313,11 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                   color: const Color(0xFF0284C7).withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const Icon(Icons.music_note, color: Color(0xFF38BDF8), size: 20),
+                child: const Icon(
+                  Icons.music_note,
+                  color: Color(0xFF38BDF8),
+                  size: 20,
+                ),
               ),
               const SizedBox(width: 10),
               const Text(
@@ -345,12 +348,24 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                 focusNode: _searchFocusNode,
                 style: const TextStyle(color: Colors.white, fontSize: 13),
                 decoration: InputDecoration(
-                  hintText: 'Jump to number (e.g. 433, cis 511) or search title/lyrics...',
-                  hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.4), fontSize: 13),
-                  prefixIcon: const Icon(Icons.search, color: Colors.white54, size: 18),
+                  hintText:
+                      'Jump to number (e.g. 433, cis 511) or search title/lyrics...',
+                  hintStyle: TextStyle(
+                    color: Colors.white.withValues(alpha: 0.4),
+                    fontSize: 13,
+                  ),
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    color: Colors.white54,
+                    size: 18,
+                  ),
                   suffixIcon: _searchController.text.isNotEmpty
                       ? IconButton(
-                          icon: const Icon(Icons.clear, color: Colors.white54, size: 16),
+                          icon: const Icon(
+                            Icons.clear,
+                            color: Colors.white54,
+                            size: 16,
+                          ),
                           onPressed: () {
                             _searchController.clear();
                             setState(() {});
@@ -393,11 +408,18 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                     ),
                     label: Text(_isBlackout ? 'BLACKOUT' : 'Blackout (B)'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: _isBlackout ? const Color(0xFFDC2626) : const Color(0xFF1E293B),
+                      backgroundColor: _isBlackout
+                          ? const Color(0xFFDC2626)
+                          : const Color(0xFF1E293B),
                       foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 8,
+                      ),
                       elevation: 0,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
                     onPressed: _toggleBlackout,
                   ),
@@ -409,18 +431,31 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                     icon: Icon(
                       _isCleared ? Icons.format_color_reset : Icons.text_fields,
                       size: 16,
-                      color: _isCleared ? const Color(0xFFF59E0B) : Colors.white70,
+                      color: _isCleared
+                          ? const Color(0xFFF59E0B)
+                          : Colors.white70,
                     ),
                     label: Text(
                       _isCleared ? 'CLEARED' : 'Clear (C)',
-                      style: TextStyle(color: _isCleared ? const Color(0xFFF59E0B) : Colors.white70),
+                      style: TextStyle(
+                        color: _isCleared
+                            ? const Color(0xFFF59E0B)
+                            : Colors.white70,
+                      ),
                     ),
                     style: OutlinedButton.styleFrom(
                       side: BorderSide(
-                        color: _isCleared ? const Color(0xFFF59E0B) : Colors.white24,
+                        color: _isCleared
+                            ? const Color(0xFFF59E0B)
+                            : Colors.white24,
                       ),
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 8,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
                     onPressed: _toggleCleared,
                   ),
@@ -432,16 +467,45 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                     tooltip: 'Select Audience Theme',
                     initialValue: _activeTheme,
                     color: const Color(0xFF1E293B),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                     onSelected: _setTheme,
                     itemBuilder: (context) => [
-                      const PopupMenuItem(value: 'midnight', child: Text('Midnight Navy', style: TextStyle(color: Colors.white))),
-                      const PopupMenuItem(value: 'warmGold', child: Text('Warm Amber / Gold', style: TextStyle(color: Colors.white))),
-                      const PopupMenuItem(value: 'sapphire', child: Text('Sapphire Blue', style: TextStyle(color: Colors.white))),
-                      const PopupMenuItem(value: 'pureBlack', child: Text('OLED Pure Black', style: TextStyle(color: Colors.white))),
+                      const PopupMenuItem(
+                        value: 'midnight',
+                        child: Text(
+                          'Midnight Navy',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      const PopupMenuItem(
+                        value: 'warmGold',
+                        child: Text(
+                          'Warm Amber / Gold',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      const PopupMenuItem(
+                        value: 'sapphire',
+                        child: Text(
+                          'Sapphire Blue',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      const PopupMenuItem(
+                        value: 'pureBlack',
+                        child: Text(
+                          'OLED Pure Black',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
                     ],
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 7),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 7,
+                      ),
                       decoration: BoxDecoration(
                         color: const Color(0xFF1E293B),
                         borderRadius: BorderRadius.circular(8),
@@ -449,11 +513,19 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                       ),
                       child: Row(
                         children: [
-                          const Icon(Icons.palette_outlined, size: 16, color: Colors.white70),
+                          const Icon(
+                            Icons.palette_outlined,
+                            size: 16,
+                            color: Colors.white70,
+                          ),
                           const SizedBox(width: 6),
                           Text(
                             _activeTheme.toUpperCase(),
-                            style: const TextStyle(color: Colors.white70, fontSize: 11, fontWeight: FontWeight.bold),
+                            style: const TextStyle(
+                              color: Colors.white70,
+                              fontSize: 11,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
@@ -467,7 +539,10 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                     onTap: _showPairingDialog,
                     borderRadius: BorderRadius.circular(8),
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 6,
+                      ),
                       decoration: BoxDecoration(
                         color: widget.castServer.isRunning
                             ? const Color(0xFF10B981).withValues(alpha: 0.15)
@@ -546,7 +621,9 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
 
               return ListTile(
                 selected: isSelected,
-                selectedTileColor: const Color(0xFF0284C7).withValues(alpha: 0.15),
+                selectedTileColor: const Color(
+                  0xFF0284C7,
+                ).withValues(alpha: 0.15),
                 leading: Container(
                   width: 54,
                   padding: const EdgeInsets.symmetric(vertical: 4),
@@ -573,7 +650,9 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    color: isSelected ? Colors.white : Colors.white.withValues(alpha: 0.9),
+                    color: isSelected
+                        ? Colors.white
+                        : Colors.white.withValues(alpha: 0.9),
                     fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
                     fontSize: 14,
                   ),
@@ -589,14 +668,21 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                 ),
                 trailing: hymn.rights.type == RightsType.licensed
                     ? Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 2,
+                        ),
                         decoration: BoxDecoration(
                           color: const Color(0xFFF59E0B).withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: const Text(
                           'CCLI',
-                          style: TextStyle(color: Color(0xFFF59E0B), fontSize: 10, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                            color: Color(0xFFF59E0B),
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       )
                     : null,
@@ -632,7 +718,12 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
 
   Widget _buildCenterWorkspace() {
     if (_selectedHymn == null) {
-      return const Center(child: Text('Select a hymn to present', style: TextStyle(color: Colors.white54)));
+      return const Center(
+        child: Text(
+          'Select a hymn to present',
+          style: TextStyle(color: Colors.white54),
+        ),
+      );
     }
 
     return Column(
@@ -650,9 +741,14 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                     Row(
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 2,
+                          ),
                           decoration: BoxDecoration(
-                            color: const Color(0xFF0284C7).withValues(alpha: 0.2),
+                            color: const Color(
+                              0xFF0284C7,
+                            ).withValues(alpha: 0.2),
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Text(
@@ -668,7 +764,10 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                         if (_selectedHymn!.scripture != null)
                           Text(
                             _selectedHymn!.scripture!,
-                            style: TextStyle(color: Colors.white.withValues(alpha: 0.6), fontSize: 12),
+                            style: TextStyle(
+                              color: Colors.white.withValues(alpha: 0.6),
+                              fontSize: 12,
+                            ),
                           ),
                       ],
                     ),
@@ -688,7 +787,10 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
               // Format controls: Auto-Chorus
               Row(
                 children: [
-                  const Text('Auto Refrain', style: TextStyle(color: Colors.white70, fontSize: 12)),
+                  const Text(
+                    'Auto Refrain',
+                    style: TextStyle(color: Colors.white70, fontSize: 12),
+                  ),
                   Switch(
                     value: _autoInsertChorus,
                     activeThumbColor: const Color(0xFF38BDF8),
@@ -699,7 +801,8 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                           _selectedHymn!,
                           linesPerSlide: _linesPerSlide,
                           autoInsertChorus: _autoInsertChorus,
-                          transposeSemitones: _midiController.transposeSemitones,
+                          transposeSemitones:
+                              _midiController.transposeSemitones,
                         );
                       });
                       _broadcastCurrentSlide();
@@ -720,9 +823,18 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
             labelColor: const Color(0xFF38BDF8),
             unselectedLabelColor: Colors.white54,
             tabs: const [
-              Tab(icon: Icon(Icons.slideshow, size: 18), text: 'Presentation Slides'),
-              Tab(icon: Icon(Icons.menu_book, size: 18), text: 'Musician Score Sheet'),
-              Tab(icon: Icon(Icons.info_outline, size: 18), text: 'Hymn Story & Information'),
+              Tab(
+                icon: Icon(Icons.slideshow, size: 18),
+                text: 'Presentation Slides',
+              ),
+              Tab(
+                icon: Icon(Icons.menu_book, size: 18),
+                text: 'Musician Score Sheet',
+              ),
+              Tab(
+                icon: Icon(Icons.info_outline, size: 18),
+                text: 'Hymn Story & Information',
+              ),
             ],
           ),
         ),
@@ -759,7 +871,9 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
             side: BorderSide(
-              color: isLive ? const Color(0xFF38BDF8) : Colors.white.withValues(alpha: 0.08),
+              color: isLive
+                  ? const Color(0xFF38BDF8)
+                  : Colors.white.withValues(alpha: 0.08),
               width: isLive ? 2 : 1,
             ),
           ),
@@ -781,7 +895,10 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 3,
+                            ),
                             decoration: BoxDecoration(
                               color: isLive
                                   ? const Color(0xFF38BDF8)
@@ -791,7 +908,9 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                             child: Text(
                               slide.sectionLabel.toUpperCase(),
                               style: TextStyle(
-                                color: isLive ? const Color(0xFF0F172A) : Colors.white70,
+                                color: isLive
+                                    ? const Color(0xFF0F172A)
+                                    : Colors.white70,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 11,
                               ),
@@ -800,13 +919,19 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                           const SizedBox(width: 8),
                           Text(
                             'Slide ${idx + 1} of ${slide.totalSlides}',
-                            style: TextStyle(color: Colors.white.withValues(alpha: 0.5), fontSize: 12),
+                            style: TextStyle(
+                              color: Colors.white.withValues(alpha: 0.5),
+                              fontSize: 12,
+                            ),
                           ),
                         ],
                       ),
                       if (isLive)
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 2,
+                          ),
                           decoration: BoxDecoration(
                             color: const Color(0xFF10B981),
                             borderRadius: BorderRadius.circular(4),
@@ -814,11 +939,19 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                           child: const Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Icon(Icons.fiber_manual_record, size: 8, color: Colors.white),
+                              Icon(
+                                Icons.fiber_manual_record,
+                                size: 8,
+                                color: Colors.white,
+                              ),
                               SizedBox(width: 4),
                               Text(
                                 'ON PROJECTOR',
-                                style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),
@@ -826,17 +959,21 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                     ],
                   ),
                   const SizedBox(height: 12),
-                  ...slide.lines.map((line) => Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 2),
-                        child: Text(
-                          line,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: isLive ? FontWeight.w600 : FontWeight.normal,
-                          ),
+                  ...slide.lines.map(
+                    (line) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 2),
+                      child: Text(
+                        line,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: isLive
+                              ? FontWeight.w600
+                              : FontWeight.normal,
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -854,13 +991,17 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildInfoRow('Title', hymn.title),
-          if (hymn.originalTitle != null) _buildInfoRow('Original Title', hymn.originalTitle!),
+          if (hymn.originalTitle != null)
+            _buildInfoRow('Original Title', hymn.originalTitle!),
           _buildInfoRow('Hymnal', '${hymn.hymnalName} (#${hymn.number})'),
-          if (hymn.scripture != null) _buildInfoRow('Scripture', hymn.scripture!),
+          if (hymn.scripture != null)
+            _buildInfoRow('Scripture', hymn.scripture!),
           if (hymn.author != null) _buildInfoRow('Author', hymn.author!),
           if (hymn.composer != null) _buildInfoRow('Composer', hymn.composer!),
-          if (hymn.music.tuneName != null) _buildInfoRow('Tune Name', hymn.music.tuneName!),
-          if (hymn.music.meter != null) _buildInfoRow('Meter', hymn.music.meter!),
+          if (hymn.music.tuneName != null)
+            _buildInfoRow('Tune Name', hymn.music.tuneName!),
+          if (hymn.music.meter != null)
+            _buildInfoRow('Meter', hymn.music.meter!),
           _buildInfoRow('Default Key', hymn.music.defaultKey),
           _buildInfoRow('Default Tempo', '${hymn.music.defaultBpm} BPM'),
           const SizedBox(height: 16),
@@ -868,18 +1009,30 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
           const SizedBox(height: 16),
           const Text(
             'Historical Context & Background',
-            style: TextStyle(color: Color(0xFF38BDF8), fontSize: 16, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              color: Color(0xFF38BDF8),
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 8),
           Text(
             hymn.historyNote ??
                 'This hymn is part of the beloved Seventh-day Adventist hymnody, preserved across generations for congregational worship.',
-            style: TextStyle(color: Colors.white.withValues(alpha: 0.8), fontSize: 14, height: 1.5),
+            style: TextStyle(
+              color: Colors.white.withValues(alpha: 0.8),
+              fontSize: 14,
+              height: 1.5,
+            ),
           ),
           const SizedBox(height: 24),
           const Text(
             'Rights & Licensing Metadata',
-            style: TextStyle(color: Color(0xFF38BDF8), fontSize: 16, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              color: Color(0xFF38BDF8),
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 8),
           Container(
@@ -891,11 +1044,23 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Status: ${hymn.rights.type.name}', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                Text(
+                  'Status: ${hymn.rights.type.name}',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 if (hymn.rights.rightsHolder != null)
-                  Text('Rights Holder: ${hymn.rights.rightsHolder}', style: const TextStyle(color: Colors.white70)),
+                  Text(
+                    'Rights Holder: ${hymn.rights.rightsHolder}',
+                    style: const TextStyle(color: Colors.white70),
+                  ),
                 if (hymn.rights.licenseNotice != null)
-                  Text('Notice: ${hymn.rights.licenseNotice}', style: const TextStyle(color: Colors.white70)),
+                  Text(
+                    'Notice: ${hymn.rights.licenseNotice}',
+                    style: const TextStyle(color: Colors.white70),
+                  ),
               ],
             ),
           ),
@@ -912,10 +1077,23 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
         children: [
           SizedBox(
             width: 140,
-            child: Text(label, style: TextStyle(color: Colors.white.withValues(alpha: 0.5), fontSize: 13)),
+            child: Text(
+              label,
+              style: TextStyle(
+                color: Colors.white.withValues(alpha: 0.5),
+                fontSize: 13,
+              ),
+            ),
           ),
           Expanded(
-            child: Text(value, style: const TextStyle(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600)),
+            child: Text(
+              value,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
           ),
         ],
       ),
@@ -923,7 +1101,8 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
   }
 
   Widget _buildRightControlPanel() {
-    final currentSlide = _currentSlides.isNotEmpty && _activeSlideIndex < _currentSlides.length
+    final currentSlide =
+        _currentSlides.isNotEmpty && _activeSlideIndex < _currentSlides.length
         ? _currentSlides[_activeSlideIndex]
         : null;
 
@@ -940,7 +1119,14 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                 children: [
                   Icon(Icons.live_tv, size: 16, color: Color(0xFF38BDF8)),
                   SizedBox(width: 8),
-                  Text('Audience Display Monitor', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13)),
+                  Text(
+                    'Audience Display Monitor',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 13,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -953,7 +1139,9 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(color: Colors.white24),
-                  boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 8)],
+                  boxShadow: const [
+                    BoxShadow(color: Colors.black54, blurRadius: 8),
+                  ],
                 ),
                 clipBehavior: Clip.antiAlias,
                 child: PresentationOutputScreen(
@@ -1009,16 +1197,26 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                 children: [
                   Row(
                     children: [
-                      const Icon(Icons.piano, color: Color(0xFF38BDF8), size: 18),
+                      const Icon(
+                        Icons.piano,
+                        color: Color(0xFF38BDF8),
+                        size: 18,
+                      ),
                       const SizedBox(width: 8),
                       const Text(
                         'MIDI Accompaniment Engine',
-                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 13),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                        ),
                       ),
                       const Spacer(),
                       IconButton(
                         icon: Icon(
-                          _midiController.isPlaying ? Icons.pause_circle_filled : Icons.play_circle_fill,
+                          _midiController.isPlaying
+                              ? Icons.pause_circle_filled
+                              : Icons.play_circle_fill,
                           color: const Color(0xFF38BDF8),
                           size: 32,
                         ),
@@ -1041,11 +1239,21 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                       children: [
                         Row(
                           children: [
-                            const Text('Pitch Transposition:', style: TextStyle(color: Colors.white70, fontSize: 12)),
+                            const Text(
+                              'Pitch Transposition:',
+                              style: TextStyle(
+                                color: Colors.white70,
+                                fontSize: 12,
+                              ),
+                            ),
                             const Spacer(),
                             Text(
                               'Key: ${_midiController.transposedKey} (${_midiController.transposeSemitones >= 0 ? "+${_midiController.transposeSemitones}" : _midiController.transposeSemitones} st)',
-                              style: const TextStyle(color: Color(0xFF38BDF8), fontWeight: FontWeight.bold, fontSize: 13),
+                              style: const TextStyle(
+                                color: Color(0xFF38BDF8),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 13,
+                              ),
                             ),
                           ],
                         ),
@@ -1054,19 +1262,37 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             IconButton(
-                              icon: const Icon(Icons.remove, color: Colors.white70, size: 18),
+                              icon: const Icon(
+                                Icons.remove,
+                                color: Colors.white70,
+                                size: 18,
+                              ),
                               onPressed: () {
-                                _midiController.setTranspose(_midiController.transposeSemitones - 1);
+                                _midiController.setTranspose(
+                                  _midiController.transposeSemitones - 1,
+                                );
                               },
                             ),
                             TextButton(
-                              child: const Text('Reset Key (0)', style: TextStyle(color: Colors.white54, fontSize: 11)),
+                              child: const Text(
+                                'Reset Key (0)',
+                                style: TextStyle(
+                                  color: Colors.white54,
+                                  fontSize: 11,
+                                ),
+                              ),
                               onPressed: () => _midiController.setTranspose(0),
                             ),
                             IconButton(
-                              icon: const Icon(Icons.add, color: Colors.white70, size: 18),
+                              icon: const Icon(
+                                Icons.add,
+                                color: Colors.white70,
+                                size: 18,
+                              ),
                               onPressed: () {
-                                _midiController.setTranspose(_midiController.transposeSemitones + 1);
+                                _midiController.setTranspose(
+                                  _midiController.transposeSemitones + 1,
+                                );
                               },
                             ),
                           ],
@@ -1089,11 +1315,21 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                       children: [
                         Row(
                           children: [
-                            const Text('Tempo (BPM):', style: TextStyle(color: Colors.white70, fontSize: 12)),
+                            const Text(
+                              'Tempo (BPM):',
+                              style: TextStyle(
+                                color: Colors.white70,
+                                fontSize: 12,
+                              ),
+                            ),
                             const Spacer(),
                             Text(
                               '${_midiController.bpm} BPM',
-                              style: const TextStyle(color: Color(0xFF38BDF8), fontWeight: FontWeight.bold, fontSize: 13),
+                              style: const TextStyle(
+                                color: Color(0xFF38BDF8),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 13,
+                              ),
                             ),
                           ],
                         ),
@@ -1103,7 +1339,8 @@ class _StudioHomeScreenState extends State<StudioHomeScreen>
                           max: 160,
                           divisions: 22,
                           activeColor: const Color(0xFF38BDF8),
-                          onChanged: (val) => _midiController.setBpm(val.round()),
+                          onChanged: (val) =>
+                              _midiController.setBpm(val.round()),
                         ),
                       ],
                     ),

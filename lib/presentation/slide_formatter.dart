@@ -43,12 +43,14 @@ class SlideFormatter {
             ? '${section.label} (${chunkIdx + 1}/${lineChunks.length})'
             : section.label;
 
-        slides.add(_TempSlide(
-          sectionType: section.type,
-          sectionLabel: label,
-          lines: chunkLines,
-          chords: chunkChords,
-        ));
+        slides.add(
+          _TempSlide(
+            sectionType: section.type,
+            sectionLabel: label,
+            lines: chunkLines,
+            chords: chunkChords,
+          ),
+        );
       }
 
       // Auto-insert chorus after a verse if enabled and not already at a chorus
@@ -63,7 +65,8 @@ class SlideFormatter {
 
         for (var cIdx = 0; cIdx < chorusChunks.length; cIdx++) {
           final cLines = chorusChunks[cIdx];
-          final cChords = chorusChordChunks != null && cIdx < chorusChordChunks.length
+          final cChords =
+              chorusChordChunks != null && cIdx < chorusChordChunks.length
               ? _transposeChords(chorusChordChunks[cIdx], transposeSemitones)
               : null;
 
@@ -71,12 +74,14 @@ class SlideFormatter {
               ? '${primaryChorus.label} (${cIdx + 1}/${chorusChunks.length})'
               : primaryChorus.label;
 
-          slides.add(_TempSlide(
-            sectionType: 'chorus',
-            sectionLabel: cLabel,
-            lines: cLines,
-            chords: cChords,
-          ));
+          slides.add(
+            _TempSlide(
+              sectionType: 'chorus',
+              sectionLabel: cLabel,
+              lines: cLines,
+              chords: cChords,
+            ),
+          );
         }
       }
     }
@@ -132,10 +137,32 @@ class SlideFormatter {
   }
 
   static final List<String> _scaleSharps = [
-    'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'
+    'C',
+    'C#',
+    'D',
+    'D#',
+    'E',
+    'F',
+    'F#',
+    'G',
+    'G#',
+    'A',
+    'A#',
+    'B',
   ];
   static final List<String> _scaleFlats = [
-    'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'
+    'C',
+    'Db',
+    'D',
+    'Eb',
+    'E',
+    'F',
+    'Gb',
+    'G',
+    'Ab',
+    'A',
+    'Bb',
+    'B',
   ];
 
   static String transposeRootNote(String note, int semitones) {

@@ -1,8 +1,4 @@
-enum RightsType {
-  publicDomain,
-  licensed,
-  userProvided,
-}
+enum RightsType { publicDomain, licensed, userProvided }
 
 class RightsRecord {
   final RightsType type;
@@ -32,11 +28,11 @@ class RightsRecord {
   }
 
   Map<String, dynamic> toJson() => {
-        'type': type.name,
-        if (rightsHolder != null) 'rightsHolder': rightsHolder,
-        if (licenseNotice != null) 'licenseNotice': licenseNotice,
-        if (verifiedAt != null) 'verifiedAt': verifiedAt,
-      };
+    'type': type.name,
+    if (rightsHolder != null) 'rightsHolder': rightsHolder,
+    if (licenseNotice != null) 'licenseNotice': licenseNotice,
+    if (verifiedAt != null) 'verifiedAt': verifiedAt,
+  };
 }
 
 class HymnSection {
@@ -60,19 +56,27 @@ class HymnSection {
     return HymnSection(
       type: json['type'] as String? ?? 'verse',
       number: json['number'] as int?,
-      label: json['label'] as String? ?? (json['type'] == 'chorus' ? 'Chorus' : 'Verse'),
-      lines: (json['lines'] as List<dynamic>?)?.map((e) => e.toString()).toList() ?? [],
-      chords: (json['chords'] as List<dynamic>?)?.map((e) => e.toString()).toList(),
+      label:
+          json['label'] as String? ??
+          (json['type'] == 'chorus' ? 'Chorus' : 'Verse'),
+      lines:
+          (json['lines'] as List<dynamic>?)
+              ?.map((e) => e.toString())
+              .toList() ??
+          [],
+      chords: (json['chords'] as List<dynamic>?)
+          ?.map((e) => e.toString())
+          .toList(),
     );
   }
 
   Map<String, dynamic> toJson() => {
-        'type': type,
-        if (number != null) 'number': number,
-        'label': label,
-        'lines': lines,
-        if (chords != null) 'chords': chords,
-      };
+    'type': type,
+    if (number != null) 'number': number,
+    'label': label,
+    'lines': lines,
+    if (chords != null) 'chords': chords,
+  };
 }
 
 class MusicResource {
@@ -102,19 +106,21 @@ class MusicResource {
       tuneName: json['tuneName'] as String?,
       meter: json['meter'] as String?,
       defaultBpm: json['defaultBpm'] as int? ?? 100,
-      melodyNotes: (json['melodyNotes'] as List<dynamic>?)?.map((e) => e as int).toList(),
+      melodyNotes: (json['melodyNotes'] as List<dynamic>?)
+          ?.map((e) => e as int)
+          .toList(),
     );
   }
 
   Map<String, dynamic> toJson() => {
-        if (midiAsset != null) 'midiAsset': midiAsset,
-        if (scoreAsset != null) 'scoreAsset': scoreAsset,
-        'defaultKey': defaultKey,
-        if (tuneName != null) 'tuneName': tuneName,
-        if (meter != null) 'meter': meter,
-        'defaultBpm': defaultBpm,
-        if (melodyNotes != null) 'melodyNotes': melodyNotes,
-      };
+    if (midiAsset != null) 'midiAsset': midiAsset,
+    if (scoreAsset != null) 'scoreAsset': scoreAsset,
+    'defaultKey': defaultKey,
+    if (tuneName != null) 'tuneName': tuneName,
+    if (meter != null) 'meter': meter,
+    'defaultBpm': defaultBpm,
+    if (melodyNotes != null) 'melodyNotes': melodyNotes,
+  };
 }
 
 class Hymn {
@@ -164,9 +170,14 @@ class Hymn {
       composer: json['composer'] as String?,
       scripture: json['scripture'] as String?,
       historyNote: json['historyNote'] as String?,
-      rights: RightsRecord.fromJson(json['rights'] as Map<String, dynamic>? ?? {}),
-      music: MusicResource.fromJson(json['music'] as Map<String, dynamic>? ?? {}),
-      sections: (json['sections'] as List<dynamic>?)
+      rights: RightsRecord.fromJson(
+        json['rights'] as Map<String, dynamic>? ?? {},
+      ),
+      music: MusicResource.fromJson(
+        json['music'] as Map<String, dynamic>? ?? {},
+      ),
+      sections:
+          (json['sections'] as List<dynamic>?)
               ?.map((s) => HymnSection.fromJson(s as Map<String, dynamic>))
               .toList() ??
           [],
@@ -174,20 +185,20 @@ class Hymn {
   }
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'hymnalCode': hymnalCode,
-        'hymnalName': hymnalName,
-        'number': number,
-        'title': title,
-        if (originalTitle != null) 'originalTitle': originalTitle,
-        if (author != null) 'author': author,
-        if (composer != null) 'composer': composer,
-        if (scripture != null) 'scripture': scripture,
-        if (historyNote != null) 'historyNote': historyNote,
-        'rights': rights.toJson(),
-        'music': music.toJson(),
-        'sections': sections.map((s) => s.toJson()).toList(),
-      };
+    'id': id,
+    'hymnalCode': hymnalCode,
+    'hymnalName': hymnalName,
+    'number': number,
+    'title': title,
+    if (originalTitle != null) 'originalTitle': originalTitle,
+    if (author != null) 'author': author,
+    if (composer != null) 'composer': composer,
+    if (scripture != null) 'scripture': scripture,
+    if (historyNote != null) 'historyNote': historyNote,
+    'rights': rights.toJson(),
+    'music': music.toJson(),
+    'sections': sections.map((s) => s.toJson()).toList(),
+  };
 }
 
 class PresentationSlide {
@@ -225,21 +236,27 @@ class PresentationSlide {
       sectionLabel: json['sectionLabel'] as String? ?? '',
       slideIndex: json['slideIndex'] as int? ?? 0,
       totalSlides: json['totalSlides'] as int? ?? 1,
-      lines: (json['lines'] as List<dynamic>?)?.map((e) => e.toString()).toList() ?? [],
-      chords: (json['chords'] as List<dynamic>?)?.map((e) => e.toString()).toList(),
+      lines:
+          (json['lines'] as List<dynamic>?)
+              ?.map((e) => e.toString())
+              .toList() ??
+          [],
+      chords: (json['chords'] as List<dynamic>?)
+          ?.map((e) => e.toString())
+          .toList(),
     );
   }
 
   Map<String, dynamic> toJson() => {
-        'hymnId': hymnId,
-        'hymnalCode': hymnalCode,
-        'hymnNumber': hymnNumber,
-        'title': title,
-        'sectionType': sectionType,
-        'sectionLabel': sectionLabel,
-        'slideIndex': slideIndex,
-        'totalSlides': totalSlides,
-        'lines': lines,
-        if (chords != null) 'chords': chords,
-      };
+    'hymnId': hymnId,
+    'hymnalCode': hymnalCode,
+    'hymnNumber': hymnNumber,
+    'title': title,
+    'sectionType': sectionType,
+    'sectionLabel': sectionLabel,
+    'slideIndex': slideIndex,
+    'totalSlides': totalSlides,
+    'lines': lines,
+    if (chords != null) 'chords': chords,
+  };
 }

@@ -21,10 +21,7 @@ void main() async {
   // Load hymn catalog
   await repository.loadCatalog();
 
-  runApp(HymnalStudioApp(
-    repository: repository,
-    castServer: castServer,
-  ));
+  runApp(HymnalStudioApp(repository: repository, castServer: castServer));
 }
 
 class HymnalStudioApp extends StatefulWidget {
@@ -83,7 +80,11 @@ class _HymnalStudioAppState extends State<HymnalStudioApp> {
           sectionLabel: msg['sectionLabel'] as String? ?? '',
           slideIndex: msg['slideIndex'] as int? ?? 0,
           totalSlides: msg['totalSlides'] as int? ?? 1,
-          lines: (msg['lines'] as List<dynamic>?)?.map((e) => e.toString()).toList() ?? [],
+          lines:
+              (msg['lines'] as List<dynamic>?)
+                  ?.map((e) => e.toString())
+                  .toList() ??
+              [],
         );
         _isBlackout = false;
         _isCleared = false;
