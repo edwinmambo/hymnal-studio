@@ -13,7 +13,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final repository = CatalogRepository();
-  final castServer = WorshipCastServer();
+  final castServer = createWorshipCastServer();
 
   // Start embedded casting server (or web broadcast channel on web)
   await castServer.start();
